@@ -1,0 +1,37 @@
+.container {
+    margin-top: 20px;
+    margin-bottom: 10%;
+    font-family: 'Times New Roman', Times, serif;
+}
+.overflow-auto {
+    z-index: 0;
+    width: responsive;
+    height: 400px;
+}
+td{
+    vertical-align: middle;
+}
+.table.table-bordered{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+}
+
+@media all and (max-width: 500px) {
+    .container {
+        margin-top: 20px;
+        margin-bottom: 10%;
+        font-family: 'Times New Roman', Times, serif;
+    }
+    .overflow-auto {
+        z-index: 0;
+        width: responsive;
+        height: 400px;
+    }
+    td{
+        vertical-align: middle;
+    }
+    .table.table-bordered{
+        font-family: 'Times New Roman', Times, serif;
+        font-size: medium;
+    }
+}

@@ -1,0 +1,147 @@
+<div *ngIf="admin" class="container">
+    <div class="card my-5">
+        <h1 style="text-align: center;">Elenco delle visite prenotate</h1>
+        <div class="overflow-auto">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class=".table-bordered">
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Data</th>
+                                <th scope="col">Orario</th>
+                                <th scope="col">Numero dei componenti</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Cognome</th>
+                                <th scope="col">Professione</th>
+                                <th scope="col">Numero di telefono</th>
+                                <th scope="col">Paese</th>
+                                <th scope="col">Città</th>
+                                <th scope="col">Info aggiuntive</th>
+                                <th scope="col">Motivo dell'eliminazione</th>
+                                <th scope="col"></th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody class=".table-bordered">
+                            <tr style="vertical-align: middle;" *ngFor="let p of prenotazione">
+                                <td>{{ p.id }}</td>
+                                <td name="data">{{ p.data }}</td>
+                                <td name="orario">{{ p.orario }}</td>
+                                <td name="numcomponenti">{{ p.numcomponenti }}</td>
+                                <td name="nome">{{ p.nome }}</td>
+                                <td name="cognome">{{ p.cognome }}</td>
+                                <td name="cognome">{{ p.professione }}</td>
+                                <td name="cellulare">{{ p.cellulare }}</td>
+                                <td name="paese">{{ p.paese }}</td>
+                                <td name="citta">{{ p.citta }}</td>
+                                <td name="infoAggiuntiva">{{ p.infoAggiuntiva }}</td>
+                                <td name="motivo"><input style="width: 100px;" [(ngModel)]="p.motivo"
+                                        class="form-control"></td>
+                                <td><button style="height: 100px; font-size: smaller;" class="btn btn-danger"
+                                        (click)="send(p)" (click)="cancellaPrenotazione(p.id)">ELIMINA LA
+                                        VISITA</button></td>
+                                <td><button style="height: 100px; font-size: small;" class="btn btn-success"
+                                        (click)="PrenotazioneCompletata(p)"
+                                        (click)="cancellaPrenotazione(p.id)">CONFERMA LA AVVENUTA VISITA</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card my-5">
+        <h1 style="text-align: center;">Elenco delle visite cancellate</h1>
+        <div class="overflow-auto">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class=".table-bordered">
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Data</th>
+                                <th scope="col">Orario</th>
+                                <th scope="col">Numero dei componenti</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Cognome</th>
+                                <th scope="col">Professione</th>
+                                <th scope="col">Numero di telefono</th>
+                                <th scope="col">Paese</th>
+                                <th scope="col">Città</th>
+                                <th scope="col">Info aggiuntive</th>
+                                <th scope="col">Motivo dell'eliminazione</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody class=".table-bordered">
+                            <tr *ngFor="let p of prenotazioniEliminate">
+                                <td>{{ p.id }}</td>
+                                <td name="data">{{ p.data }}</td>
+                                <td name="orario">{{ p.orario }}</td>
+                                <td name="numcomponenti">{{ p.numcomponenti }}</td>
+                                <td name="nome">{{ p.nome }}</td>
+                                <td name="cognome">{{ p.cognome }}</td>
+                                <td name="cognome">{{ p.professione }}</td>
+                                <td name="cellulare">{{ p.cellulare }}</td>
+                                <td name="paese">{{ p.paese }}</td>
+                                <td name="citta">{{ p.citta }}</td>
+                                <td name="infoAggiuntiva">{{ p.infoAggiuntiva }}</td>
+                                <td name="motivo">{{ p.motivo }}</td>
+                                <td><button style="height: 100px; font-size: small;" class="btn btn-danger"
+                                        (click)="cancellaVisitaCancellata(p.id)">ELIMINA LA VISITA CANCELLATA</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card my-5">
+        <h1 style="text-align: center;">Elenco delle visite avvenute con successo</h1>
+        <div class="overflow-auto">
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class=".table-bordered">
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Data</th>
+                                <th scope="col">Orario</th>
+                                <th scope="col">Numero dei componenti</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Cognome</th>
+                                <th scope="col">Professione</th>
+                                <th scope="col">Numero di telefono</th>
+                                <th scope="col">Paese</th>
+                                <th scope="col">Città</th>
+                                <th scope="col">Info aggiuntive</th>
+                                <th scope="col"></th>
+                            </tr>
+                        </thead>
+                        <tbody class=".table-bordered">
+                            <tr *ngFor="let p of prenotazioniAvvenute">
+                                <td>{{ p.id }}</td>
+                                <td name="data">{{ p.data }}</td>
+                                <td name="orario">{{ p.orario }}</td>
+                                <td name="numcomponenti">{{ p.numcomponenti }}</td>
+                                <td name="nome">{{ p.nome }}</td>
+                                <td name="cognome">{{ p.cognome }}</td>
+                                <td name="cognome">{{ p.professione }}</td>
+                                <td name="cellulare">{{ p.cellulare }}</td>
+                                <td name="paese">{{ p.paese }}</td>
+                                <td name="citta">{{ p.citta }}</td>
+                                <td name="infoAggiuntiva">{{ p.infoAggiuntiva }}</td>
+                                <td><button style="height: 100px; font-size: small;" class="btn btn-danger"
+                                        (click)="cancellaVisitaAvvenuta(p.id)">ELIMINA LA VISITA AVVENUTA</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

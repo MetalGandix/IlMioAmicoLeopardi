@@ -1,0 +1,18 @@
+@media all and (max-width: 500px) {
+    .container {
+        margin-bottom: 10%;
+        text-align: -webkit-center;
+        margin-top: 10px;
+    }
+    .title {
+        font-size: xx-large;
+        font-family: 'Times New Roman', Times, serif;
+        text-align: center;
+        line-height: normal;
+        font-style: italic;
+    }
+    .campiModulo {
+        padding: 5%;
+        font-family: 'Times New Roman', Times, serif;
+    }
+}

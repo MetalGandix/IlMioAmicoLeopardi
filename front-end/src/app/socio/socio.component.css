@@ -1,0 +1,46 @@
+.container {
+    margin-top: 20px;
+    margin-bottom: 10%;
+}
+h1 {
+    font-family: "Times New Roman", Times, serif;
+    text-align: center;
+    font-size: large;
+}
+h2 {
+    font-family: "Times New Roman", Times, serif;
+    text-align: center;
+    font-size: large;
+}
+h3 {
+    font-family: "Times New Roman", Times, serif;
+    text-align: center;
+    font-size: large;
+}
+.img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 300px;
+}
+
+@media all and (max-width: 500px) {
+    .h1 {
+        font-family: "Times New Roman", Times, serif;
+        text-align: center;
+        font-size: large;
+    }
+    .container {
+        margin-top: 20px;
+        margin-bottom: 10%;
+    }
+    h3 {
+        font-family: "Times New Roman", Times, serif;
+    }
+    .img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        height: 130px;
+    }
+}

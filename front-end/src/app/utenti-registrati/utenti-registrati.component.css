@@ -1,0 +1,75 @@
+.container {
+    margin-bottom: 10%;
+    margin-top: 20px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+}
+.overflow-auto {
+    z-index: 0;
+    width: responsive;
+    height: 500px;
+}
+h1 {
+    font-size: x-large;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+}
+td {
+    vertical-align: middle;
+    text-align: justify;
+}
+button {
+    background: none;
+    border: none;
+    margin-bottom: 5%;
+    margin-top: 5%;
+}
+.elimina {
+    vertical-align: middle;
+    background-color: none;
+    color: red;
+}
+.changeRole {
+    vertical-align: middle;
+    background-color: none;
+    color: blue;
+}
+
+@media all and (max-width: 500px) {
+    .container {
+        margin-bottom: 10%;
+        margin-top: 20px;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: medium;
+    }
+    .overflow-auto {
+        z-index: 0;
+        width: responsive;
+        height: 500px;
+    }
+    h1 {
+        font-size: x-large;
+        font-family: 'Times New Roman', Times, serif;
+        text-align: center;
+    }
+    td {
+        vertical-align: middle;
+        text-align: justify;
+    }
+    button {
+        background: none;
+        border: none;
+        margin-bottom: 5%;
+        margin-top: 5%;
+    }
+    .elimina {
+        vertical-align: middle;
+        background-color: none;
+        color: red;
+    }
+    .changeRole {
+        vertical-align: middle;
+        background-color: none;
+        color: blue;
+    }
+}

@@ -1,0 +1,260 @@
+<div class="container" style="font-family: 'Times New Roman', Times, serif;">
+    <img class="img" src="\assets\images\LogoCentroCulturaleGL.png">
+    <h1 style="margin-top: 5%;">In questa sezione potrai compilare la domanda per diventare un socio del Centro culturale Giacomo Leopardi</h1>
+
+    <div class="card-body">
+        <form (ngSubmit)="OnSubmit()" #moduloForm="ngForm" style="text-align: -webkit-center; ">
+            <h3>Al Consiglio direttivo del Centro culturale Giacomo Leopardi</h3>
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                <div class="form-group">
+                    <label class="control-label">Il sottoscritto Nome</label>
+                    <input id="name" #nome="ngModel" name="nome" type="text" placeholder="Inserisci il tuo nome"
+                        [(ngModel)]="modulo.nome" class="form-control" required>
+                </div>
+                <div *ngIf="nome.invalid && (nome.dirty || nome.touched)" class="alert alert-danger">
+                    <div *ngIf="nome.errors.required">
+                        Devi inserire il nome
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                <div class="form-group">
+                    <label class="control-label">Cognome</label>
+                    <input id="name" #cognome="ngModel" type="text" name="cognome"
+                        placeholder="Inserisci il tuo cognome" [(ngModel)]="modulo.cognome" class="form-control"
+                        required>
+                </div>
+                <div *ngIf="cognome.invalid && (cognome.dirty || cognome.touched)" class="alert alert-danger">
+                    <div *ngIf="cognome.errors.required">
+                        Devi inserire il cognome
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+                <div class="form-group">
+                    <label class="control-label" for="city">Residente a</label>
+                    <input id="city" #citta="ngModel" type="text" name="citta" placeholder="Inserisci la tua città"
+                        [(ngModel)]="modulo.citta" class="form-control" required>
+                </div>
+                <div *ngIf="citta.invalid && (citta.dirty || citta.touched)" class="alert alert-danger">
+                    <div *ngIf="citta.errors.required">
+                        Inserisci la tua città di residenza
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+                <div class="form-group">
+                    <label class="control-label" for="city">Nato a</label>
+                    <input id="city" #luogoDiNascita="ngModel" type="text" name="luogoDiNascita"
+                        placeholder="Inserisci la tua città" [(ngModel)]="modulo.luogoDiNascita" class="form-control"
+                        required>
+                </div>
+                <div *ngIf="luogoDiNascita.invalid && (luogoDiNascita.dirty || luogoDiNascita.touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="luogoDiNascita.errors.required">
+                        Inserisci la tua città di nascita
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+                <div class="form-group">
+                    <label>il giorno</label>
+                    <input type="date" [(ngModel)]="modulo.giornoDiNascita" required minlength="2" class="form-control"
+                        name="giornoDiNascita" required #giornoDiNascita="ngModel">
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+                <div class="form-group">
+                    <label for="CAP">CAP</label>
+                    <input type="text" [(ngModel)]="modulo.cap" required minlength="5" class="form-control" name="cap"
+                        placeholder="Inserisci il codice postale" size="5" maxlength="5" required #cap="ngModel">
+                    <div *ngIf="cap.invalid && (cap.dirty || cap.touched)" class="alert alert-danger">
+                        <div *ngIf="cap.errors.required">
+                            inserisci il codice postale della tua città
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+                <div class="form-group">
+                    <label for="via">in via</label>
+                    <input type="text" [(ngModel)]="modulo.via" required minlength="2" class="form-control" name="via"
+                        placeholder="Inserisci la via di residenza" required #via="ngModel">
+                    <div *ngIf="via.invalid && (via.dirty || via.touched)" class="alert alert-danger">
+                        <div *ngIf="via.errors.required">
+                            Inserisci la via di residenza
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+                <div class="form-group">
+                    <label for="email">email</label>
+                    <input type="text" [(ngModel)]="modulo.email" required minlength="2" class="form-control"
+                        name="email" placeholder="Inserisci la tua email" required #email="ngModel">
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
+                        <div *ngIf="email.errors.required">
+                            Inserisci la tua email
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+                <div class="form-group">
+                    <label class="control-label" for="phone"> Numero di telefono*</label>
+                    <input #numeroTelefono="ngModel" type="text" name="numeroTelefono"
+                        placeholder="Inserisci il tuo numero di cellulare" [(ngModel)]="modulo.numeroTelefono"
+                        class="form-control" required>
+                </div>
+                <div *ngIf="numeroTelefono.invalid && (numeroTelefono.dirty || numeroTelefono.touched)"
+                    class="alert alert-danger">
+                    <div *ngIf="numeroTelefono.errors.required">
+                        Inserisci il numero di cellulare del visitatore.
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+                <div class="form-group">
+                    <label for="professione">professione</label>
+                    <input type="text" [(ngModel)]="modulo.professione" required minlength="2" class="form-control"
+                        name="professione" placeholder="Inserisci la tua professione" required #professione="ngModel">
+                    <div *ngIf="professione.invalid && (professione.dirty || professione.touched)"
+                        class="alert alert-danger">
+                        <div *ngIf="professione.errors.required">
+                            Inserisci la tua professione
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+                <div class="form-group">
+                    <label for="CF">Codice Fiscale</label>
+                    <input type="text" [(ngModel)]="modulo.codiceFiscale" required minlength="2" class="form-control"
+                        id="name" name="codiceFiscale" placeholder="Inserisci il tuo codice fiscale" size="16"
+                        maxlength="16" required #codiceFiscale="ngModel">
+                    <div *ngIf="codiceFiscale.invalid && (codiceFiscale.dirty || codiceFiscale.touched)"
+                        class="alert alert-danger">
+                        <div *ngIf="codiceFiscale.errors.required">
+                            Inserisci il tuo codice fiscale
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <h2>CHIEDE</h2>
+
+            <div class="form-group">
+                <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+                    <select [(ngModel)]="modulo.quotaAnnuale" name="quotaAnnuale">
+                        <option value="20">
+                            20 euro
+                        </option>
+                        <option value="50">
+                            50 euro
+                        </option>
+                        <option value="100">
+                            100 euro
+                        </option>
+                    </select>
+                </div>
+            </div>
+
+            <h3>Informativa ai sensi della L. 679/2016 e successivo regolamento europeo</h3>
+            <p>
+                Con l’entrata in vigore della legge 679/2016 recante norme per la “tutela delle persone e di altri
+                soggetti rispetto al trattamento dei dati
+                personali”, siamo tenuti a fornire le seguenti informazioni circa il trattamento dei dati personali:
+            </p>
+            <ol style="text-align: justify;" type="1">
+                <li>I dati personali sono raccolti direttamente dall’interessato nell’ambito dell’attività di
+                    tesseramento svolta dal centro culturale G. Leopardi
+                </li>
+                <li>In ragione di ciò, tali dati sono da considerare sensibili, perché da essi possono desumersi le
+                    convinzioni religiose culturali o politiche e l’adesione a associazioni od organizzazioni a
+                    carattere religioso. Pertanto è necessaria un’apposita manifestazione di consenso da parte
+                    dell’interessato, che si intende rilasciata per il trattamento di dati di tal genere già in nostro
+                    possesso o che verranno acquisiti in futuro, nei limiti necessari al perseguimento degli scopi del
+                    centro culturale Leopardi.
+                </li>
+                <li>Il trattamento dei dati personali, svolto senza/mediante elaborazione automatizzata all’interno del
+                    territorio dell’Unione Europea in modo tale da garantire la sicurezza e la riservatezza dei dati
+                    stessi, è funzionale allo svolgimento delle attività connesse alla vita del centro culturale stesso.
+                </li>
+                <li>I dati potranno inoltre essere comunicati ad altri soggetti che aderiscono alle attività del centro.
+                    I soggetti destinatari della comunicazione utilizzeranno e conserveranno i dati solo per il tempo
+                    necessario alla realizzazione della singola attività.
+                </li>
+                <li>
+                    La durata di conservazione dei dati è fissata in 36 mesi, a decorrere dall’ultima interazione
+                    rilevata attraverso i nostri sistemi informatici.
+                </li>
+                <li>
+                    L’interessato ha il diritto di accedere ai propri dati personali, di chiederne la rettifica,
+                    l’aggiornamento, la limitazione del trattamento, la portabilità o, ancora, la cancellazione, nonché
+                    di opporsi al loro trattamento per motivi legittimi. L’interessato ha, inoltre, diritto di proporre
+                    reclamo al Garante per la protezione dei dati personali. Le richieste possono essere rivolte al
+                    Titolare del trattamento presso l’indirizzo mail: centro_leopardiirgilio.it
+                </li>
+                <li>
+                    L’articolo 13 della legge 675/1996 attribuisce all’interessato l’esercizio di diritti specifici. In
+                    particolare, questi può ottenere dal titolare del trattamento la conferma dell’esistenza o meno di
+                    dati personali e che tali dati vengano messi a sua disposizione; può chiedere di conoscere l’origine
+                    dei dati nonché la logica e le finalità su cui si basa il trattamento; può ottenere la
+                    cancellazione, la trasformazione in forma anonima o il blocco dei dati trattati in violazione della
+                    legge, nonché l’aggiornamento, la rettificazione o, se vi è interesse, l’integrazione dei dati; può
+                    opporsi, per motivi legittimi, al trattamento stesso.
+                </li>
+                <li>
+                    Il titolare del trattamento dei dati è il Centro Culturale G. Leopardi nella persona di Milena
+                    Tacconi attuale presidente del centro.
+                </li>
+            </ol>
+
+            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                <div class="form-group">
+                    <label class="control-label" for="datepicker">Data della compilazione</label>
+                    <!-- <div class="input-group">
+                        <input id="datepicker" #data="ngModel" name="dataCompilazione" type="date"
+                            [(ngModel)]="modulo.dataCompilazione" placeholder="inserisci una data"
+                            class="form-control" required>
+                             {{today | date: 'dd-MM-yyyy'}}
+                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                    </div> -->
+                </div>
+
+                <span>
+                <p style="font-size: medium;font-family: 'Times New Roman', Times, serif;">
+                    <mat-icon style="vertical-align:middle;">today</mat-icon>
+                    {{todayHTML | date: 'dd-MM-yyyy'}}
+                </p></span>
+            </div>
+
+            <div style="margin-bottom: 10%;" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                <button [disabled]="!moduloForm.form.valid" type="submit" class="btn btn-primary">Invia
+                    richiesta</button>
+            </div>
+            <div class="row" style="margin-top: 10%; width: 350px; height: 350px;" *ngIf="logRicevuto">
+                <div class="col-xs-12">
+                    <div class="alert alert-success">
+                        <p>
+                            <strong>Il modulo è stato correttamente inviato.</strong>
+                        </p>
+                        <a routerLink="/home">Torna alla home</a>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>-->

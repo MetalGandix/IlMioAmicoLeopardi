@@ -1,0 +1,47 @@
+<mat-sidenav-container class="sidenav-container">
+  <mat-sidenav #drawer class="sidenav" fixedInViewport #sidenav (click)="sidenav.toggle()"
+      [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'"
+      [mode]="(isHandset$ | async) ? 'over' : 'side'" 
+      [opened]="(isHandset$ | async) === false">
+    <mat-toolbar style="color: white;"><i>Menù</i></mat-toolbar>
+    <mat-nav-list>
+      <a style="color: red;" mat-list-item routerLink="/home" routerLinkActive="active" (click)="onSidenavClose()"><mat-icon>home</mat-icon> <span style="margin-left: 10px;" class="nav-caption"><i>Home</i></span></a>
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLink="/chi-siamo"><mat-icon>account_circle</mat-icon> <span style="margin-left: 10px;" class="nav-caption"><i>Chi siamo</i></span></a>
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLink="/contatti"><mat-icon>call</mat-icon> <span style="margin-left: 10px;" class="nav-caption"><i>Contatti</i></span></a>
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLink="/mappa"><mat-icon>location_on</mat-icon> <span style="margin-left: 10px;" class="nav-caption"><i>Percorso</i></span></a>
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLink="/poesia"><mat-icon>queue_music</mat-icon> <span style="margin-left: 10px;" class="nav-caption"><i>Testi del Percorso Leopardiano</i></span></a>
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLink="/poesia-specifica"><mat-icon>search</mat-icon> <span style="margin-left: 10px;" class="nav-caption"><i>Cerca un testo Leopardiano</i></span></a>
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLink="/tariffa"><mat-icon>euro_symbol</mat-icon> <span style="margin-left: 10px;" class="nav-caption"><i>Scopri le nostre tariffe</i></span></a>
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLink="/bacheca-eventi"><mat-icon>event_note</mat-icon> <span style="margin-left: 10px;" class="nav-caption"><i>Bacheca Eventi</i></span></a>
+      <mat-divider></mat-divider>
+      <a mat-list-item routerLink="/socio"><mat-icon>edit</mat-icon> <span style="margin-left: 10px;" class="nav-caption"><i>Diventa un Socio</i></span></a>
+      <mat-divider></mat-divider>
+      <a *ngIf="!visitor && !admin" style="color: blue;" mat-list-item routerLink="/login"><mat-icon>person</mat-icon> <span style="margin-left: 10px;" class="nav-caption"><i>Area riservata</i></span></a>
+      <a *ngIf="visitor" style="color: blue;" mat-list-item routerLink="/scelta-utente"><mat-icon>person</mat-icon> <span style="margin-left: 10px;" class="nav-caption"><i>{{ utente.name }}</i></span></a>
+      <mat-divider></mat-divider>
+      <a *ngIf="admin" style="color: blue;" mat-list-item routerLink="/scelta-utente"><mat-icon>person</mat-icon> <span style="margin-left: 10px;" class="nav-caption"><i>Admin</i></span></a>
+      <mat-divider></mat-divider>
+      <a (click)="logOut()" *ngIf="visitor || admin" style="color: red;" mat-list-item><mat-icon>exit_to_app</mat-icon><span style="margin-left: 10px;" class="nav-caption"><i>Log out</i></span></a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary">
+      <button
+        type="button"
+        aria-label="Toggle sidenav"
+        mat-icon-button
+        (click)="drawer.toggle()"
+        *ngIf="isHandset$ | async">
+        <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
+      </button>
+      <span style="margin-left: 10px;"><i class="uptitle">Centro Culturale Giacomo Leopardi</i></span>
+    </mat-toolbar>
+  </mat-sidenav-content>
+</mat-sidenav-container>

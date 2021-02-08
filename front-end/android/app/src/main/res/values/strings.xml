@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">GiacomoLeopardiApp</string>
+    <string name="title_activity_main">GiacomoLeopardiApp</string>
+    <string name="package_name">unicam.app.GiacomoLeopardi</string>
+    <string name="custom_url_scheme">unicam.app.GiacomoLeopardi</string>
+</resources>

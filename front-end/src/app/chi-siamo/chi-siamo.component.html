@@ -1,0 +1,60 @@
+<div class="container" style="font-family:'Times New Roman', Times, serif;padding-left: 5%; padding-right: 5%;">
+    <h1><i>Chi siamo</i></h1>
+    <h2>
+        <i> La Nostra Storia</i>
+    </h2>
+    <p>
+        Il centro culturale G. Leopardi nasce nel 1981 e si pone, a Recanati
+        e nelle città vicine, come luogo di dialogo e di aggregazione per tutti
+        coloro che amano l’arte, la storia, la lettura, la letteratura, la musica.
+    </p>
+    <p>
+        Dal 2002 ha allargato la sua base associativa, ha stipulato
+        convenzioni e programmato la sua attività in modo preciso e
+        sistematico abbracciando l’intero territorio regionale.
+    </p>
+    <p>
+        Dal 29/12/2004 è iscritto al n°. 348/SOS nella sezione II del registro
+        regionale delle Associazioni di Promozione Sociale, ai sensi dell’art.
+        5 comma 4 della L.R. 9/2004.
+    </p>
+
+    <p>
+        Dal 2013 il centro culturale inizia una serie di pubblicazioni e di
+        attività di approfondimento dell&#39;opera e del pensiero del poeta pur
+        mantenendo un profilo culturale ad ampio raggio che abbraccia la
+        musica, l’arte, la lettura e la letteratura.
+    </p>
+    <p>
+        La passione che anima chi lo ha fondato e chi lo guida è l&#39;uomo e la
+        sua esperienza nella concretezza del reale; l&#39;uomo e il suo
+        desiderio di trovare ciò che dà consistenza e significato al suo fare.
+    </p>
+    <p>
+        A questo riguardo dal 2002 è possibile associarsi versando 20 Euro al Centro Culturale G. Leopardi – Recanati
+        <br><b>IBAN IT55C0311169131000000020021</b><br>
+        in modo da conoscere le iniziative in programmazione e poter partecipare.
+    </p>
+
+    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleCaptions" *ngFor="let i of imageCarousel;let index = index"
+                [attr.data-slide-to]="index"></li>
+        </ol>
+        <div class="carousel-inner">
+            <div class="carousel-item" *ngFor="let i of imageCarousel;let index = index;let isFirst = first"
+                [ngClass]="{active:isFirst}">
+                <img [src]="i.retrievedImage" class="d-block w-100" [alt]="i.name">
+            </div>
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
+    </div>
+
+</div>

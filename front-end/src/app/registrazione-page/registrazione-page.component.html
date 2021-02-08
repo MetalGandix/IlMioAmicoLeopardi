@@ -1,0 +1,162 @@
+<div class="container">
+
+  <body>
+    <div class="card-body">
+      <form (ngSubmit)="onSubmit()" #userForm="ngForm" style="text-align: -webkit-center; ">
+
+        <div class="form-group">
+          <label for="username">Email</label>
+          <input type="text" [(ngModel)]="user.username" class="form-control" id="username" name="username"
+            placeholder="Enter your email address" required #username="ngModel" (keyup)="existUser()"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$">
+            <div *ngIf="b2 == true" style="margin-top: 10px;" class="alert alert-danger">
+              L'email esiste già, scegline un'altra.
+            </div>
+          <div *ngIf="username.invalid && (username.dirty || username.touched)" class="alert alert-danger">
+            <div *ngIf="username.errors.required">
+              Devi scrivere una e-mail.
+            </div>
+            <div *ngIf="username.errors?.pattern">
+              L'email non sembra essere corretta.
+            </div>
+            <div *ngIf="userExist && !username.errors">
+              Questa email è già utilizzata.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="name">Nome</label>
+          <input type="text" [(ngModel)]="user.name" required minlength="2" class="form-control" id="name" name="name"
+            placeholder="Enter your name" required #name="ngModel">
+          <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+            <div *ngIf="name.errors.required">
+              Devi scrivere Il nome.
+            </div>
+            <div *ngIf="name.errors.minlength">
+              Il nome deve essere lungo almeno 2 caratteri.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="lastName">Cognome</label>
+          <input type="text" [(ngModel)]="user.lastname" required minlength="2" class="form-control" id="lastName"
+            name="lastName" placeholder="Enter your last name" required #lastName="ngModel">
+          <div *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)" class="alert alert-danger">
+            <div *ngIf="lastName.errors.required">
+              Devi scrivere Il cognome.
+            </div>
+            <div *ngIf="lastName.errors.minlength">
+              Il cognome deve essere lungo almeno 2 caratteri.
+            </div>
+          </div>
+        </div>
+
+
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" [(ngModel)]="user.password" required minlength="7" class="form-control" id="password"
+            name="password" placeholder="Enter your password" required #password="ngModel">
+          <div *ngIf="password.invalid && (lastName.dirty || password.touched)" class="alert alert-danger">
+            <div *ngIf="password.errors.required">
+              Devi scrivere la Password.
+            </div>
+            <div *ngIf="password.errors.minlength">
+              La password deve essere lunga almeno 7 caratteri.
+            </div>
+          </div>
+        </div>
+
+        <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+          <div class="form-check">
+            <input type="checkbox" #checkbox1="ngModel" class="form-check-input" id="exampleCheck1" name="check1"
+              [(ngModel)]="user.checkbox1" required>
+            <label class="form-check-label" for="exampleCheck1">Accetta le nostre<a data-toggle="modal"
+                data-target="#exampleModalCenter" style="color: blue;"> condizioni</a>*</label>
+            <!--<h1>Condizioni d'uso</h1>
+        
+            <h1>Benvenuti su CentroCulturaleGL</h1>
+            <p>Le presenti Condizioni d'uso (o "Condizioni") disciplinano l'uso dell'app, tranne nei casi di esplicita indicazione circa l'applicazione di condizioni separate (diverse dalle presenti), e forniscono informazioni sul Servizio CentroCulturaleGL (il "Servizio"), descritto di seguito. Creando un account CentroCulturaleGL o usando CentroCulturaleGL, l'utente accetta le presenti Condizioni.</p>-->
+
+
+
+            <!-- Modal -->
+            <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog"
+              aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title" id="exampleModalLongTitle">Benvenuti su CentroCulturaleGL</h1>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <p>Le presenti Condizioni d'uso (o "Condizioni") disciplinano l'uso dell'app, tranne nei casi di
+                      esplicita indicazione circa l'applicazione di condizioni separate (diverse dalle presenti), e
+                      forniscono informazioni sul Servizio CentroCulturaleGL (il "Servizio"), descritto di seguito.
+                      Creando un account CentroCulturaleGL o usando CentroCulturaleGL, l'utente accetta le presenti
+                      Condizioni.</p>
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+        <!-- <div style="display: none;" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+          <div class="form-check">
+            <input type="checkbox" #checkbox2="ngModel" class="form-check-input" id="exampleCheck2" name="check2"
+              [(ngModel)]="user.checkbox2" required>
+            <label class="form-check-labe2" for="exampleCheck2">privacy 2*</label>
+          </div>
+        </div>
+        <div style="display: none;" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+          <div class="form-check">
+            <input type="checkbox" #checkbox3="ngModel" class="form-check-input" id="exampleCheck3" name="check3"
+              [(ngModel)]="user.checkbox3">
+            <label class="form-check-labe3" for="exampleCheck3">privacy 3</label>
+          </div>
+        </div> -->
+
+        <button *ngIf="b1 == true" type="submit" class="btn btn-primary" [disabled]="!userForm.form.valid"
+          class="btn btn-info" data-toggle="modal" data-target="#registrazione">Submit</button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="registrazione" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+          aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 class="modal-title" id="exampleModalLongTitle">La registrazione è andata a buon fine.</h1>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <p>Grazie per aver effettuato la registrazione sulla nostra applicazione<br>Abbiamo inviato una email per permetterle di confermare la registrazione.</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+      <div>
+        <button routerLink="/home" class="btn btn-success"
+          style="display:block; margin-left: auto; margin-right: auto; margin-top: 5%;">Torna alla Home</button>
+        <!-- <a style="color: red;" routerLink="/home">Torna alla home</a> -->
+      </div>
+      <div>
+        <button routerLink="/login" class="btn btn-success"
+          style="display:block; margin-left: auto; margin-right: auto; margin-top: 5%;">Torna al login</button>
+        <!-- <a style="color: red;" routerLink="/login">Torna al login</a> -->
+      </div>
+    </div>
+  </body>
+</div>

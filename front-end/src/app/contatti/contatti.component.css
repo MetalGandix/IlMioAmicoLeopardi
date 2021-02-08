@@ -1,0 +1,49 @@
+.container {
+    margin-top: 20px;
+    margin-bottom: 10%;
+}
+
+.material-icons {
+    color: #ebbc39;
+    vertical-align: middle;
+}
+
+h2 {
+    text-transform: uppercase;
+    font-size: 28px;
+    color: #ebbc39;
+}
+
+hr {
+    color: #ebbc39;
+}
+
+.map-container {
+    justify-content: center;
+    height: 300px;
+    z-index: 0;
+}
+
+@media all and (max-width: 500px) {
+    .container {
+        margin-top: 20px;
+        margin-bottom: 10%;
+    }
+    .material-icons {
+        color: #ebbc39;
+        vertical-align: middle;
+    }
+    h2 {
+        text-transform: uppercase;
+        font-size: 28px;
+        color: #ebbc39;
+    }
+    hr {
+        color: #ebbc39;
+    }
+    .map-container {
+        justify-content: center;
+        height: 180px;
+        z-index: 0;
+    }
+}

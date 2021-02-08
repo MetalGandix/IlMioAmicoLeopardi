@@ -1,0 +1,9 @@
+@import '~material-icons/iconfont/material-icons.css';
+@use "@material/drawer";
+@use "@material/list";
+
+@include drawer.core-styles;
+@include drawer.dismissible-core-styles;
+@include drawer.modal-core-styles;
+@include list.core-styles;
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

@@ -1,0 +1,83 @@
+<div class="container" *ngIf="admin">
+    <h1>Crea un nuovo evento</h1>
+    <form (ngSubmit)="onSubmit()" #eventoForm="ngForm">
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+            <div class="title">
+                <div class="form-group">
+                    <label class="control-label" for="textarea">Titolo Evento*</label>
+                    <input [(ngModel)]="evento.nomeEvento" #nomeEvento="ngModel" name="nomeEvento" class="form-control"
+                        required>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+            <div class="form-group">
+                <label class="control-label" for="datepicker">Data dell'evento*</label>
+                <div class="input-group">
+                    <input id="datepicker" #dataEvento="ngModel" name="dataEvento" type="date"
+                        [(ngModel)]="evento.dataEvento" placeholder="Data desiderata" class="form-control" required>
+                    <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                </div>
+                <div *ngIf="dataEvento.invalid && (dataEvento.dirty || dataEvento.touched)" class="alert alert-danger">
+                    <div *ngIf="dataEvento.errors.required">
+                        Devi inserire una data.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+            <div class="descrizione">
+                <label class="control-label" for="descrizione">Descrizione Evento*</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"
+                    [(ngModel)]="evento.descrizione" name="descrizione" #descrizione="ngModel" class="form-control"
+                    required></textarea>
+                <!-- <input [(ngModel)]="evento.descrizione" name="descrizione" #descrizione="ngModel" class="form-control"
+                    required> -->
+            </div>
+        </div>
+
+        <!--PROVA DI UPLOAD IMMAGINE-->
+        <div class="container row">
+            <div class="col-md-12">
+                <h1>Carica immagine</h1>
+            </div>
+        </div>
+        <div class="container row">
+            <div class="col-md-6">
+                <input type="file" (change)="onFileChanged($event)">
+            </div>
+        </div>
+        <hr />
+        <div class="container row">
+            <div class="col-md-12">
+                <div *ngIf=message style="font-family: 'Times New Roman', Times, serif;">{{message}}</div>
+            </div>
+        </div>
+
+        <div style="margin-bottom: 40px;" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+            <button [disabled]="!eventoForm.form.valid" type="submit" class="btn btn-primary" data-toggle="modal"
+                data-target="#creaEvento">Crea Evento</button>
+        </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="creaEvento" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+            aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title" id="exampleModalLongTitle">Evento creato con successo</h1>
+                    </div>
+                    <div class="modal-body">
+                        <p>Il tuo evento è stato creato con successo e visualizzabile nella bacheca eventi</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal"
+                            routerLink="/scelta-utente">Area Riservata</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>

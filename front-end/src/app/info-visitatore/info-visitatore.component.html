@@ -1,0 +1,70 @@
+<div *ngIf="visitor" class="container">
+
+    <h1>La tabella qua sotto indica i dati del tuo account</h1>
+
+    <div class="overflow-auto">
+        <!--spostato lo style nel CSS -->
+        <div class="card-body">
+            <div class="table-responsive">
+                <table class="table table-bordered">
+                    <tr>
+                        <th>Email: </th>
+                        <td>{{ utente.username }} </td>
+                    </tr>
+                    <tr>
+                        <th>Nome: </th>
+                        <td>{{ utente.name }} </td>
+                    </tr>
+                    <tr>
+                        <th>Cognome: </th>
+                        <td>{{ utente.lastname }} </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <p>Visite che hai prenotato :</p>
+
+    <div class="card my-5">
+        <div class="overflow-auto">
+            <!--spostato lo style nel CSS -->
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-bordered">
+                        <thead class=".table-bordered">
+                            <tr>
+                                <th scope="col">ID</th>
+                                <th scope="col">Data</th>
+                                <th scope="col">Orario</th>
+                                <th scope="col">Numero dei componenti</th>
+                                <th scope="col">Nome</th>
+                                <th scope="col">Cognome</th>
+                                <th scope="col">Professione</th>
+                                <th scope="col">Numero di telefono</th>
+                                <th scope="col">Paese</th>
+                                <th scope="col">Città</th>
+                                <th scope="col">Info aggiuntive</th>
+                            </tr>
+                        </thead>
+                        <tbody class=".table-bordered">
+                            <tr *ngFor="let p of visita">
+                                <td>{{ p.id }}</td>
+                                <td name="data">{{ p.data }}</td>
+                                <td name="orario">{{ p.orario }}</td>
+                                <td name="numcomponenti">{{ p.numcomponenti }}</td>
+                                <td name="nome">{{ p.nome }}</td>
+                                <td name="cognome">{{ p.cognome }}</td>
+                                <td name="cognome">{{ p.professione }}</td>
+                                <td name="cellulare">{{ p.cellulare }}</td>
+                                <td name="paese">{{ p.paese }}</td>
+                                <td name="citta">{{ p.citta }}</td>
+                                <td name="infoAggiuntiva">{{ p.infoAggiuntiva }}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,42 @@
+footer{
+    margin-top: 15px; 
+    max-height: 5px;
+}
+
+p{
+    font-family: "Times New Roman", Times, serif;
+}
+
+  .router-link-active {
+    color: rgb(255, 255, 255);
+    font-weight: bold;
+}
+
+.example-container {
+    width: 500px;
+    height: 300px;
+    border: 1px solid rgba(0, 0, 0, 0.5);
+  }
+  
+  .example-sidenav-content {
+    display: flex;
+    height: 100%;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .example-sidenav {
+    padding: 20px;
+  }
+
+.active{color:#EA6904!important;}
+
+@media all and (max-width: 500px){
+    footer{
+        margin-top: 70px;
+    }
+    .router-link-active {
+        color: rgb(255, 255, 255);
+        font-weight: bold;
+    }
+  }

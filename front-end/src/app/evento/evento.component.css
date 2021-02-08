@@ -1,0 +1,48 @@
+.container {
+    margin-bottom: 10%;
+    text-align: -webkit-center;
+    margin-top: 10px;
+}
+
+h1 {
+    font-size: 20px;
+    font-family: "Times New Roman", Times, serif;
+    text-align: center;
+    text-overflow: inherit;
+}
+
+.icon {
+    color: rgb(60, 223, 6);
+    vertical-align: middle;
+    margin-right: 10%;
+}
+.titolo {
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+.descrizione {
+    margin-top: 10%;
+    margin-bottom: 10%;
+}
+
+@media all and (max-width: 500px) {
+    .container {
+        margin-bottom: 10%;
+        text-align: -webkit-center;
+        margin-top: 10px;
+    }
+    h1 {
+        font-size: x-large;
+        font-family: "Times New Roman", Times, serif;
+        text-align: center;
+        text-overflow: inherit;
+    }
+    .titolo {
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+    .descrizione {
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+}

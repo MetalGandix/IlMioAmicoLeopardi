@@ -1,0 +1,85 @@
+<div class="container" *ngIf="admin">
+    <p class="title">In questa pagina è possibile visualizzare i moduli di richiesta socio</p>
+
+    <div>
+        <button class="btn btn-outline-warning" style="width: 200px; display: block; margin: 5% auto 5% ;"
+            (click)="moduliNonCofermati()">Lista moduli non confermati</button>
+        <button class="btn btn-outline-success" style="width: 200px; display: block; margin: 5% auto 5% ;"
+            (click)="moduliCofermati()">Lista moduli confermati</button>
+    </div>
+
+    <div *ngIf="moduliDaVedere">
+        <div *ngFor="let modulo of moduliCompilati; index as i">
+            <div class="card my-5">
+                <div class="overflow-auto">
+                    <div class="card-body">
+                        <table class="table table-bordered table-striped" style="box-shadow: 15px 15px 10px #dedede;">
+                            <div class="campiModulo">
+                                <p>ID: {{modulo.id}}</p>
+                                <p>Nome:<span style="text-transform: capitalize;"> {{modulo.nome}} </span> </p>
+                                <p>Cognome: <span style="text-transform: capitalize;">{{modulo.cognome}}</span></p>
+                                <p>Luogo di nascita:<span style="text-transform: capitalize;">
+                                        {{modulo.luogoDiNascita}}</span>
+                                </p>
+                                <p>Giorno di nascita:  <span style="text-transform: capitalize;">{{modulo.giornoDiNascita}}</span></p>
+                                <p>Città: <span style="text-transform: capitalize;">{{modulo.citta}}</span> </p>
+                                <p>Via:<span style="text-transform: capitalize;"> {{modulo.via}}</span></p>
+                                <p>Email: {{modulo.email}}</p>
+                                <p>Numero di telefono: {{modulo.numeroTelefono}}</p>
+                                <p>Professione: <span style="text-transform: capitalize;"> {{modulo.professione}}</span>
+                                </p>
+                                <p>Codice fiscale: <span style="text-transform: uppercase;"> {{modulo.codiceFiscale}}
+                                    </span>
+                                </p>
+                                <p>Quota annuale: {{modulo.quotaAnnuale}}</p>
+                                <p>Data di compilazione: <span style="text-transform: capitalize;">{{modulo.dataCompilazione}}</span></p>
+                                <hr>
+
+                                <button class="btn btn-outline-success"
+                                    style="width: 200px; display: block; margin: 5% auto 5% ;"
+                                    (click)="deleteModulo(modulo.id)">Conferma richiesta socio</button>
+                                <button class="btn btn-outline-danger"
+                                    style="width: 200px; display: block; margin: 5% auto 5% ;"
+                                    (click)="deleteModulo(modulo.id)">Elimina richiesta socio</button>
+                            </div>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="moduliVisti">
+        <div *ngFor="let modulo of moduliCompilati; index as i">
+            <div class="card my-5">
+                <div class="overflow-auto">
+                    <div class="card-body">
+                        <table class="table table-bordered table-striped" style="box-shadow: 15px 15px 10px #dedede;">
+                            <div class="campiModulo">
+                                <p>ID: {{modulo.id}}</p>
+                                <p>Nome:<span style="text-transform: capitalize;"> {{modulo.nome}} </span> </p>
+                                <p>Cognome: <span style="text-transform: capitalize;">{{modulo.cognome}}</span></p>
+                                <p>Luogo di nascita:<span style="text-transform: capitalize;">
+                                        {{modulo.luogoDiNascita}}</span>
+                                </p>
+                                <p>Giorno di nascita:<span style="text-transform: capitalize;">{{modulo.giornoDiNascita}}</span></p>
+                                <p>Città: <span style="text-transform: capitalize;">{{modulo.citta}}</span> </p>
+                                <p>Via:<span style="text-transform: capitalize;"> {{modulo.via}}</span></p>
+                                <p>Email: {{modulo.email}}</p>
+                                <p>Numero di telefono: {{modulo.numeroTelefono}}</p>
+                                <p>Professione: <span style="text-transform: capitalize;"> {{modulo.professione}}</span>
+                                </p>
+                                <p>Codice fiscale: <span style="text-transform: uppercase;"> {{modulo.codiceFiscale}}
+                                    </span>
+                                </p>
+                                <p>Quota annuale: {{modulo.quotaAnnuale}}</p>
+                                <p>Data di compilazione: {{modulo.dataCompilazione}}</p>
+                                <hr>
+                            </div>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

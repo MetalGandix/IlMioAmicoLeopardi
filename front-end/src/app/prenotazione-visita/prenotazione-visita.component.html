@@ -1,0 +1,225 @@
+<div class="container">
+    <div *ngIf="!visitor">
+        <h1 class="h1">Per prenotare la visita devi effettuare il login</h1>
+        <button routerLink="/login" class="btn btn-success"
+            style="display:block; margin-left: auto; margin-right: auto;">Vai al login</button>
+    </div>
+
+    <div *ngIf="visitor" class="container" style="margin-top: 20px; margin-bottom: 50px;">
+        <div class="row">
+            <div style="margin-bottom: 20px;" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb30 text-center">
+                <h1 style="font-size: 30px;">Prenota il tuo Tour per il magnifico percorso leopardiano</h1>
+            </div>
+        </div>
+        <div class="row">
+
+            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 mb30">
+                <div class="tour-booking-form">
+                    <form (ngSubmit)="onSubmit()" #prenotazioneForm="ngForm">
+                        <div class="row">
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12 ">
+                                <h4 class="tour-form-title">Dettagli prenotazione</h4>
+                            </div>
+
+                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                                <div class="form-group">
+                                    <label class="control-label" for="datepicker">Data del tour*</label>
+                                    <div class="input-group">
+                                        <input id="datepicker" #data="ngModel" name="data" type="date"
+                                            [(ngModel)]="prenotazione.data" placeholder="Data desiderata"
+                                            class="form-control" required>
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                    <div *ngIf="data.invalid && (data.dirty || data.touched)"
+                                        class="alert alert-danger">
+                                        <div *ngIf="data.errors.required">
+                                            Devi inserire una data.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                                <div class="form-group">
+                                    <label class="control-label" for="time">Orario desiderato*</label>
+                                    <div class="input-group">
+                                        <input id="time" name="orario" type="time" placeholder="Orario"
+                                            [(ngModel)]="prenotazione.orario" class="form-control" #orario="ngModel"
+                                            required>
+                                        <span class="input-group-addon"><i class="fa fa-calendar"></i></span>
+                                    </div>
+                                    <div *ngIf="orario.invalid && (orario.dirty || orario.touched)"
+                                        class="alert alert-danger">
+                                        <div *ngIf="orario.errors.required">
+                                            Devi inserire un orario.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                                <div class="form-group">
+                                    <label class="control-label required" for="select">Numero dei componenti del
+                                        gruppo*</label>
+                                    <div class="input">
+                                        <input id="number" #numcomponenti="ngModel" name="numcomponenti" type="number"
+                                            placeholder="0-30" min="1" max="30" [(ngModel)]="prenotazione.numcomponenti"
+                                            class="form-control" required>
+                                    </div>
+                                    <span class="input-group-addon"></span>
+                                </div>
+                                <div *ngIf="numcomponenti.invalid && (numcomponenti.dirty || numcomponenti.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="numcomponenti.errors.required">
+                                        Devi inserire il numero di componenti che verranno alla visita.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 mt30">
+                                <h4 class="tour-form-title">Informazioni generali referente del gruppo</h4>
+                            </div>
+                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                                <div class="form-group">
+                                    <label class="control-label">Nome*</label>
+                                    <input id="name" #nome="ngModel" name="nome" type="text"
+                                        placeholder="Inserisci il tuo nome" [(ngModel)]="prenotazione.nome"
+                                        class="form-control" required>
+                                </div>
+                                <div *ngIf="nome.invalid && (nome.dirty || nome.touched)" class="alert alert-danger">
+                                    <div *ngIf="nome.errors.required">
+                                        Devi inserire il nome del visitatore. In caso di visite di gruppo, il nome del
+                                        referente.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                                <div class="form-group">
+                                    <label class="control-label">Cognome*</label>
+                                    <input id="name" #cognome="ngModel" type="text" name="cognome"
+                                        placeholder="Inserisci il tuo cognome" [(ngModel)]="prenotazione.cognome"
+                                        class="form-control" required>
+                                </div>
+                                <div *ngIf="cognome.invalid && (cognome.dirty || cognome.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="cognome.errors.required">
+                                        Devi inserire il cognome del visitatore. In caso di visite di gruppo, il cognome
+                                        del
+                                        referente.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12 col-12">
+                                <div class="form-group">
+                                    <label class="control-label required" for="select">Professione/Tipologia del
+                                        gruppo*</label>
+                                    <select (change)="onChange($event.target.value)"
+                                        [(ngModel)]="prenotazione.professione" class="form-control" id="professione"
+                                        name="professione" required #professione="ngModel">
+                                        <option [value]="default" disabled>Seleziona chi sei</option>
+                                        <option value="Gruppi scolastici">Gruppi scolastici</option>
+                                        <option value="Universitari">Universitari</option>
+                                        <option value="Associazioni culturali">Associazioni culturali</option>
+                                        <option value="Turisti">Turisti</option>
+                                        <option value=" ">Altro</option>
+                                    </select>
+                                    <div *ngIf="input==true">
+                                        <p style="margin-top: 20px; color: red;">Inserisci la tua categorizzazione</p>
+                                        <input [(ngModel)]="prenotazione.professione" class="form-control"
+                                            id="professione" name="professione" required #professione="ngModel">
+                                    </div>
+                                    <span class="input-group-addon"></span>
+                                </div>
+                                <div *ngIf="professione.invalid && (professione.dirty || professione.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="professione.errors.required">
+                                        Devi inserire la professione.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+                                <div class="form-group">
+                                    <label class="control-label" for="phone"> Numero di telefono*</label>
+                                    <input id="phone" #cellulare="ngModel" type="text" name="cellulare"
+                                        placeholder="Inserisci il tuo numero di cellulare"
+                                        [(ngModel)]="prenotazione.cellulare" class="form-control" required>
+                                </div>
+                                <div *ngIf="cellulare.invalid && (cellulare.dirty || cellulare.touched)"
+                                    class="alert alert-danger">
+                                    <div *ngIf="cellulare.errors.required">
+                                        Inserisci il numero di cellulare del visitatore.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+                                <div class="form-group">
+                                    <label class="control-label" for="country">Paese*</label>
+                                    <input #paese="ngModel" id="country" type="text" name="paese"
+                                        placeholder="Inserisci il tuo paese" [(ngModel)]="prenotazione.paese"
+                                        class="form-control" required>
+                                </div>
+                                <div *ngIf="paese.invalid && (paese.dirty || paese.touched)" class="alert alert-danger">
+                                    <div *ngIf="paese.errors.required">
+                                        Inserisci il tuo paese di provenienza
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-4 col-lg-4 col-md-12 col-sm-12 col-12">
+                                <div class="form-group">
+                                    <label class="control-label" for="city">Città*</label>
+                                    <input id="city" #citta="ngModel" type="text" name="citta"
+                                        placeholder="Inserisci la tua città" [(ngModel)]="prenotazione.citta"
+                                        class="form-control" required>
+                                </div>
+                                <div *ngIf="citta.invalid && (citta.dirty || citta.touched)" class="alert alert-danger">
+                                    <div *ngIf="citta.errors.required">
+                                        Inserisci la tua città
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <div class="form-group">
+                                    <label class="control-label" for="textarea">Informazioni aggiuntive (Non
+                                        obbligatorio)</label>
+                                    <input class="form-control" name="infoAggiuntiva" id="textarea" rows="4"
+                                        [(ngModel)]="prenotazione.infoAggiuntiva">
+                                </div>
+                            </div>
+
+                            <div style="margin-bottom: 40px;" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
+                                <button [disabled]="!prenotazioneForm.form.valid" type="submit"
+                                    class="btn btn-primary" data-toggle="modal"
+                                    data-target="#creazioneEvento">Invia richiesta</button>
+                            </div>
+
+                            <!-- Modal -->
+                            <div class="modal fade" id="creazioneEvento" tabindex="-1" role="dialog"
+                                aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <h1 class="modal-title" id="exampleModalLongTitle">Prenotazione effettuata con successo</h1>
+                                        </div>
+                                        <div class="modal-body">
+                                            <p>Grazie per aver effettuato una prenotazione</p>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" routerLink="/scelta-utente"
+                                                data-dismiss="modal">Area Riservata</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

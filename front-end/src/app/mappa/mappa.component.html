@@ -1,0 +1,93 @@
+<div class="container">
+  <div class="map-container" #map></div>
+  <h1 style="margin-top: 10%;"><i>Percorso Leopardiano</i></h1>
+
+  <div style="font-family: 'Times New Roman', Times, serif;">
+    <p style="background-color: rgb(255, 255, 208);" >
+      Lunghezza percorso: 1,8 km<br>
+      Durata della visita guidata: 1h e 45min
+    </p>
+    <p>
+      Scopo del tour leopardiano proposto dal Centro Culturale Giacomo Leopardi è quello di
+      aiutare il turista a conoscere i luoghi in cui è vissuto il poeta e che alcuni suoi versi hanno
+      reso immortali ( Il colle de L’Infinito, la torre del passero solitario, la piazzuola del sabato
+      del villaggio….).
+    </p>
+    <p>
+      Il percorso verificherà anche l’effetto contrario che la produzione
+      leopardiana produce nel lettore secondo la geniale intuizione del critico Francesco De
+      Sanctis, il quale nel 1958 così ebbe a scrivere:
+    </p>
+    <p>
+      <i>
+        Leopardi produce l&#39;effetto contrario a quello che si propone. Non crede al progresso, e te
+        lo fa desiderare; non crede alla libertà, e te la fa amare. Chiama illusioni l&#39;amore, la
+        gloria, la virtù, e te ne accende un desiderio inesausto. … È scettico, e ti fa credente.
+      </i>
+    </p>
+    <p>
+      Il tour partendo da casa Leopardi si snoda per le vie del centro storico e si conclude in
+      piazza Giacomo Leopardi.
+      Per agevolare la comprensione a ciascun partecipante verrà consegnato un pieghevole con notizie sul poeta e la sua
+      famiglia.
+    </p>
+  </div>
+
+  <div *ngIf="bottoneCliccato == false">
+    <button class="btn btn-success" style="margin-right: 20px" (click)="visitaSingolaMethod()">
+      Visita autonoma
+    </button>
+
+    <button class="btn btn-success" (click)="visitaGuidataMethod()">
+      Visita con guida
+    </button>
+  </div>
+
+  <div *ngIf="visita == true">
+    <ul class="list-group" style="margin-top: 40px">
+      <a routerLink="/casa-leopardi">
+        <li class="list-group-item">Punto di interesse 1: Casa Leopardi</li>
+      </a>
+      <a routerLink="/chiesa-dei-cappuccini">
+        <li class="list-group-item">Punto di interesse 2: Chiesa dei Cappuccini</li>
+      </a>
+      <a routerLink="/piazzuola-sabato-del-villaggio">
+        <li class="list-group-item">Punto di interesse 3: Piazzuola del sabato del villaggio</li>
+      </a>
+      <a routerLink="/centro-nazionale-studi-leopardiani">
+        <li class="list-group-item">Punto di interesse 4: Centro nazionale studi Leopardiani</li>
+      </a>
+      <a routerLink="/monte-tabor">
+        <li class="list-group-item">Punto di interesse 5: Verso il monte Tabor</li>
+      </a>
+      <a routerLink="/vista-monti-azzurri">
+        <li class="list-group-item">Punto di interesse 6: La vista sui monti azzurri</li>
+      </a>
+      <a routerLink="/il-colle-dell-infinito">
+        <li class="list-group-item">Punto di interesse 7: Il colle dell'infinito</li>
+      </a>
+      <a routerLink="/casa-adelaide-antici">
+        <li class="list-group-item">Punto di interesse 8: Casa di Adelaide Antici</li>
+      </a>
+      <a routerLink="/via-roma">
+        <li class="list-group-item">Punto di interesse 9: Via Roma</li>
+      </a>
+      <a routerLink="/torre-passero-solitario">
+        <li class="list-group-item">Punto di interesse 10: Torre del Passero solitario</li>
+      </a>
+      <a routerLink="/lettera-della-befana">
+        <li class="list-group-item">Punto di interesse 11: Lettera della befana</li>
+      </a>
+      <a routerLink="/palazzo-venieri">
+        <li class="list-group-item">Punto di interesse 12: Palazzo Venieri</li>
+      </a>
+      <a routerLink="/piazza-torre-del-borgo">
+        <li class="list-group-item">Punto di interesse 13: Piazza della torre del Borgo</li>
+      </a>
+      <a routerLink="/autografo-inno">
+        <li *ngIf="aggiunta == true" class="list-group-item">Punto di interesse 14: Autografo Inno alla sua donna
+          (Gigantografia)</li>
+      </a>
+    </ul>
+  </div>
+</div>

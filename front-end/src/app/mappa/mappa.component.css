@@ -1,0 +1,69 @@
+.bottone-class {
+  margin-right: 15px;
+}
+
+#my-map {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+}
+
+p {
+  font-family: "Times New Roman", Times, serif;
+  font-size: large;
+  text-align: justify;
+}
+
+h1 {
+  font-size: xx-large;
+  font-family: "Times New Roman", Times, serif;
+  text-align: center;
+}
+
+.container {
+  margin-top: 20px;
+  margin-bottom: 10%;
+}
+
+a {
+  font-family: "Times New Roman", Times, serif;
+}
+
+.bottoneScelta {
+  margin-right: 20px;
+}
+.bottone-class {
+  margin-top: 10px;
+  font-size: 13px;
+  margin-bottom: -20px;
+}
+
+.map-container {
+  height: 300px;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  z-index: 0;
+}
+
+@media all and (max-width: 500px) {
+  .container {
+    margin-top: 20px;
+    margin-bottom: 10%;
+  }
+  .bottone-class {
+    margin-top: 10px;
+    font-size: 13px;
+    margin-bottom: -20px;
+  }
+  .map-container {
+    height: 300px;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    z-index: 0;
+  }
+}

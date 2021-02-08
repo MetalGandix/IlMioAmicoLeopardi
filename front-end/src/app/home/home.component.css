@@ -1,0 +1,188 @@
+.container {
+    margin-bottom: 10%;
+    text-align: -webkit-center;
+    margin-top: 10px;
+}
+
+.title {
+    font-size: xx-large;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+}
+
+.ermocolle {
+    margin-top: 5%;
+    font-size: x-large;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: center;
+    font-style: italic;
+    line-height: 200%;
+}
+
+.img {
+    margin-top: 10%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    height: 70%;
+}
+
+.button {
+    margin-top: 10%;
+    background: none;
+    border: none;
+    width: 100%;
+    text-align: left;
+}
+
+.icon {
+    color: rgb(60, 223, 6);
+    vertical-align: middle;
+    margin-left: 5%;
+}
+
+.desanctis {
+    margin-top: 5%;
+    font-size: large;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: justify;
+    font-style: italic;
+    line-height: 200%;
+    padding: 10%;
+}
+
+.player {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5%;
+}
+
+.imgEvento {
+    max-width: -webkit-fill-available;
+    width: 300px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.nomeEvento {
+    text-align: center;
+    text-transform: uppercase;
+    font-family: 'Times New Roman', Times, serif;
+    padding-top: 5%;
+    font-size: large;
+}
+
+.dataEvento {
+    font-family: 'Times New Roman', Times, serif;
+    text-align: left;
+    font-size: medium;
+    padding-left: 5%;
+    text-transform: capitalize;
+}
+
+.descrizioneEvento {
+    text-align: justify;
+    font-family: 'Times New Roman', Times, serif;
+    line-height: normal;
+    font-size: medium;
+    margin-bottom: 5%;
+    padding-left: 5%;
+    padding-right: 5%;
+}
+
+table.table-borderless {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: x-large;
+}
+
+@media all and (max-width: 500px) {
+    .container {
+        margin-bottom: 10%;
+        text-align: -webkit-center;
+        margin-top: 10px;
+    }
+    .title {
+        font-size: xx-large;
+        font-family: 'Times New Roman', Times, serif;
+        text-align: center;
+    }
+    .ermocolle {
+        margin-top: 5%;
+        font-size: large;
+        font-family: 'Times New Roman', Times, serif;
+        text-align: center;
+        font-style: italic;
+        line-height: 200%;
+    }
+    .img {
+        margin-top: 10%;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        height: 130px;
+    }
+    .button {
+        margin-top: 10%;
+        background: none;
+        border: none;
+        width: 100%;
+        text-align: left;
+    }
+    .icon {
+        color: rgb(60, 223, 6);
+        vertical-align: middle;
+        margin-left: 5%;
+    }
+    .desanctis {
+        margin-top: 5%;
+        font-size: large;
+        font-family: 'Times New Roman', Times, serif;
+        text-align: justify;
+        font-style: italic;
+        line-height: 200%;
+        padding: 10%;
+    }
+    .player {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-bottom: 5%;
+    }
+    .imgEvento {
+        max-width: -webkit-fill-available;
+        width: 300px;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .nomeEvento {
+        text-align: center;
+        text-transform: uppercase;
+        font-family: 'Times New Roman', Times, serif;
+        padding-top: 5%;
+        font-size: large;
+    }
+    .dataEvento {
+        font-family: 'Times New Roman', Times, serif;
+        text-align: left;
+        font-size: medium;
+        padding-left: 5%;
+        text-transform: capitalize;
+    }
+    .descrizioneEvento {
+        text-align: justify;
+        font-family: 'Times New Roman', Times, serif;
+        line-height: normal;
+        font-size: medium;
+        margin-bottom: 5%;
+        padding-left: 5%;
+        padding-right: 5%;
+    }
+    table.table-borderless {
+        font-family: 'Times New Roman', Times, serif;
+        font-size: large;
+    }
+    
+}
