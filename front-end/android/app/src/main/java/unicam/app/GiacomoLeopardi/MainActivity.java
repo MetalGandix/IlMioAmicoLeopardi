@@ -1,4 +1,4 @@
-package unicam.app.GiacomoLeopardi;
+package unicam.app.giacomoleopardi;
 
 import android.os.Bundle;
 

@@ -64,7 +64,7 @@ public class UserController {
         ConfirmationToken confirmationToken = new ConfirmationToken(userRepository.save(user));
         confirmationTokenRepository.save(confirmationToken);
         String stringaMail = "Per confermare l'account, per favore clicca " 
-        + "<a href=\"" + "http://localhost:8080/confirm-account?token="
+        + "<a href=\"" + "http://159.89.22.125:8080/giacomoLeopardi/confirm-account?token="
         +confirmationToken.getConfirmationToken() + "\">" + "qua" + "</a>";
         smtpMailSender.send(user.getUsername(), "Conferma la tua email", stringaMail);
         return "Mail mandata";

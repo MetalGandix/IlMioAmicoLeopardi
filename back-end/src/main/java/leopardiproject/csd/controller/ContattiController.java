@@ -24,7 +24,7 @@ public class ContattiController {
 
     @PostMapping("/inserisciMessaggioContatti")
     String sendMessage(@RequestBody Contatti contatti) throws MessagingException{
-        smtpMailSender.send("giacomoleopardi13@gmail.com ", contatti.getEmail(), contatti.getMessaggio());
+        smtpMailSender.send("prenotazioni@centroleopardi.it", contatti.getEmail(), contatti.getMessaggio());
         rep.save(contatti);
         return "Messaggio inviato";
     }

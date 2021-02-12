@@ -39,9 +39,7 @@ public class PrenotazioneVisitaController {
     // giacomoleopardi13@gmail.com
     @PostMapping("/visita")
     String addVisit(Authentication a, @RequestBody PrenotazioneVisita visita) throws MessagingException{
-        smtpMailSender.send("leonardo.mogianesi@studenti.unicam.it", "Visita prenotata da " + visita.getCognome(), "La visita è stata prenotata da " + visita.getNome() + " \ned il numero di componenti è di: " + visita.getNumcomponenti() + " \nper il giorno: " + visita.getData() + " alle ore: " + visita.getOrario() + "." + "\nIl numero di cellulare del visitatore è: " + visita.getCellulare());
-        smtpMailSender.send("corrado.pallucchini@studenti.unicam.it", "Visita prenotata da " + visita.getCognome(), "La visita è stata prenotata da " + visita.getNome() + " \ned il numero di componenti è di: " + visita.getNumcomponenti() + " \nper il giorno: " + visita.getData() + " alle ore: " + visita.getOrario() + "." + "\nIl numero di cellulare del visitatore è: " + visita.getCellulare());
-        smtpMailSender.send("riccardo.petracci@studenti.unicam.it", "Visita prenotata da " + visita.getCognome(), "La visita è stata prenotata da " + visita.getNome() + " \ned il numero di componenti è di: " + visita.getNumcomponenti() + " \nper il giorno: " + visita.getData() + " alle ore: " + visita.getOrario() + "." + "\nIl numero di cellulare del visitatore è: " + visita.getCellulare());
+        smtpMailSender.send("prenotazioni@centroleopardi.it", "Visita prenotata da " + visita.getCognome(), "La visita è stata prenotata da " + visita.getNome() + " \ned il numero di componenti è di: " + visita.getNumcomponenti() + " \nper il giorno: " + visita.getData() + " alle ore: " + visita.getOrario() + "." + "\nIl numero di cellulare del visitatore è: " + visita.getCellulare());
         visita.setPrenotazioneVisitatore(prendiUtenteLoggato(a));
         visitaRep.save(visita);
         otpController.sendOTP(visita.getCellulare());
