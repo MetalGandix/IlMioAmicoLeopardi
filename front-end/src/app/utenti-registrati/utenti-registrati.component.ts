@@ -17,23 +17,31 @@ export class UtentiRegistratiComponent implements OnInit {
 
   admin: boolean = false
   utente: User[]
-  bottone:boolean = false
 
   ngOnInit() {
     this.admin = sessionStorage.getItem("Role") === "ROLE_ADMIN"
-    this.service.findAll().subscribe(data => 
-    {
+    this.service.findAll().subscribe(data => {
       this.utente = data
     })
   }
 
-  deleteUtente(id: number){
-    this.service.deleteUser(id).subscribe()
-    window.location.reload();
+  deleteUtente(id: number) {
+    var sei_sicuro = confirm('Confermare eliminazione PERMANENTE di questo utente?');
+    if (sei_sicuro) {
+      this.service.deleteUser(id).subscribe()
+      window.setTimeout('location.reload()', 100);
+    } else {
+      alert('utente NON eliminato');
+    }
   }
 
-  cambiaRuolo(id: number){
-    this.service.changeRole(id).subscribe()
-    window.location.reload();
+  cambiaRuolo(id: number) {
+    var sei_sicuro = confirm('Confermare nomina admin?');
+    if (sei_sicuro) {
+      this.service.changeRole(id).subscribe()
+      window.setTimeout('location.reload()', 100);
+    } else {
+      alert('utente NON nominato Admin');
+    }
   }
 }

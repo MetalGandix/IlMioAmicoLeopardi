@@ -33,4 +33,8 @@ export class PoesiaService {
   public inserisciPoesia(poesia: Poesia) {
     return this.http.post<Poesia>(this.url + "inserisciPoesia", poesia)
   }
+
+  public findPoesiaSingolaById(id: number): Observable<Poesia> {
+    return this.http.get<Poesia>(this.url + "getPoesiaAudio/" + id);
+  }
 }

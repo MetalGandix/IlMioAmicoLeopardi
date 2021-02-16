@@ -15,12 +15,13 @@
                         <h1><b><i>{{p.titolo}}</i></b></h1>
 
                         <p style="text-align: center;">
-                            <a class="button" (click)="differenza(j)" data-toggle="modal" href="#poesie-{{ j }}"
-                                aria-expanded="false" style="vertical-align:middle"><span>
+                            <a class="button" (click)="prendiAudio(p.id)" (click)="differenza(j)" data-toggle="modal"
+                                href="#poesie-{{ j }}" aria-expanded="false" style="vertical-align:middle"><span>
                                     <mat-icon>menu_book</mat-icon>
                                 </span></a>
-                            <a *ngIf="!p.audioNotExist" class="button1" (click)="differenza(j)" data-toggle="collapse" href="#audio-{{j}}"
-                                aria-expanded="false" aria-controls="audio" style="vertical-align:middle;"><span>
+                            <a *ngIf="!p.audioNotExist" class="button1" (click)="prendiAudio(p.id)"
+                                (click)="differenza(j)" data-toggle="modal" href="#poesie-{{ j }}"
+                                aria-expanded="false" aria-controls="audio-{{j}}" style="vertical-align:middle;"><span>
                                     <mat-icon>audiotrack</mat-icon>
                                 </span></a>
                         </p>
@@ -45,7 +46,7 @@
                                                 <mat-card style="width: responsive; height: 50px;">
                                                     <div mat-card-image plyr plyrTitle="Audio" plyrType="audio"
                                                         [plyrPlaysInline]="true" [plyrCrossOrigin]="true"
-                                                        [plyrSources]="p.retrievedAudio">
+                                                        [plyrSources]="audio">
                                                     </div>
                                                 </mat-card>
                                             </div>
@@ -62,17 +63,6 @@
                                 </div>
                             </div>
                         </div>
-
-                        <div *ngIf="!p.audioNotExist" class="collapse" id="audio-{{j}}">
-                            <div style="margin-top: 5%;" class="wrapper mat-typography" fxLayout="column"
-                                fxLayoutGap="32px">
-                                <mat-card style="width: responsive; height: 50px;">
-                                    <div mat-card-image plyr plyrTitle="Audio" plyrType="audio" [plyrPlaysInline]="true"
-                                        [plyrCrossOrigin]="true" [plyrSources]="p.retrievedAudio"></div>
-                                </mat-card>
-                            </div>
-                        </div>
-
                         <hr>
                     </div>
                 </table>

@@ -1,6 +1,6 @@
 {
   "appId": "unicam.app.giacomoleopardi",
-  "appName": "AmicoLeopardi",
+  "appName": "GiacomoLeopardiApp",
   "bundledWebRuntime": false,
   "npmClient": "npm",
   "webDir": "www",
