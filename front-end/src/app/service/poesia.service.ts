@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { Audio } from '../class/audio';
 import { Poesia } from '../class/poesia';
 
 @Injectable({
@@ -11,7 +12,7 @@ export class PoesiaService {
   private url: string
 
   constructor(private http: HttpClient) {
-    this.url = 'http://159.89.22.125:8080/giacomoLeopardi/';
+    this.url = 'http://localhost:8080/';
   }
 
   public findAll(): Observable<Poesia[]> {
@@ -36,5 +37,9 @@ export class PoesiaService {
 
   public findPoesiaSingolaById(id: number): Observable<Poesia> {
     return this.http.get<Poesia>(this.url + "getPoesiaAudio/" + id);
+  }
+
+  public findAudioSingoloById(id: number): Observable<Audio>{
+    return this.http.get<Audio>(this.url + "audioId/" + id);
   }
 }

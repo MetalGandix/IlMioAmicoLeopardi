@@ -6,5 +6,5 @@ export class Poesia {
     testo: string
     capitolo: number
     retrievedAudio
-    poesia_audio: Audio
+    audio_id: number
 }

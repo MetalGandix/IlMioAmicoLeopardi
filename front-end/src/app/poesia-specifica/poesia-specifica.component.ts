@@ -41,11 +41,12 @@ export class PoesiaSpecificaComponent implements OnInit {
     this.service.findPoesiaSingolaById(id).subscribe(a => {
       console.log("id: ",id);
       console.log("a: ",a);
-      this.poesiaAudio = a
-      this.retrieveResonse = a.poesia_audio
+      this.service.findAudioSingoloById(a.audio_id).subscribe(audio => {
+      this.retrieveResonse = audio
       this.base64Data = this.retrieveResonse.picByte
       a.retrievedAudio = 'data:audio/mp3;base64,' + this.base64Data
       this.audio = a.retrievedAudio
+    })
     })     
   }
 
