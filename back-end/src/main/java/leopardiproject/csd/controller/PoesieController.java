@@ -36,6 +36,11 @@ public List<Poesie> getPoesia(@PathVariable int capitolo){
     return (List<Poesie>) rep.findByCapitolo(capitolo);
 }
 
+@GetMapping("/getPoesiaAudio/{id}")
+public Poesie getPoesiaByAudio(@PathVariable int id){
+    return rep.findById(id);
+}
+
 @GetMapping("/poesiaLike/{titolo}")
 public List<Poesie> getPoesieDalTitoloFiltrato(Model model, @Param("titolo") Poesie poesia){
     List<Poesie> listaPoesie = rep.search(poesia.getTitolo());

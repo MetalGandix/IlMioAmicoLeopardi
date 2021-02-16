@@ -15,10 +15,5 @@ public interface PoesieRepository extends JpaRepository<Poesie, Long>{
     @Query("SELECT p FROM Poesie p WHERE p.titolo LIKE %?1%")
     public List<Poesie> search(String titolo);
 
- /*   @Query("SELECT p FROM Product p WHERE p.name LIKE %?1%"
-    + " OR p.brand LIKE %?1%"
-    + " OR p.madein LIKE %?1%"
-    + " OR CONCAT(p.price, '') LIKE %?1%")
-    public List<Product> search(String keyword); */
-
+    Poesie findById(long id);
 }
