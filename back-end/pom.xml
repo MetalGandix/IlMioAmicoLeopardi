@@ -19,6 +19,7 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
 		<java.version>1.8</java.version>
+		<start-class>leopardiproject.csd.CsdApplication</start-class>
 	</properties>
 
 	<dependencies>
@@ -38,7 +39,7 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
-			<version>2.4.2</version>
+			<scope>provided</scope>
 		</dependency>
 		<dependency>
 			<groupId>mysql</groupId>
@@ -93,6 +94,7 @@
 	</dependencies>
 
 	<build>
+		<finalName>giacomoLeopardi</finalName>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -106,5 +108,7 @@
 			</resource>
 		</resources>
 	</build>
+
+
 
 </project>
