@@ -20,8 +20,8 @@
                                     <mat-icon>menu_book</mat-icon>
                                 </span></a>
                             <a *ngIf="!p.audioNotExist" class="button1" (click)="prendiAudio(p.id)"
-                                (click)="differenza(j)" data-toggle="modal" href="#poesie-{{ j }}"
-                                aria-expanded="false" aria-controls="audio-{{j}}" style="vertical-align:middle;"><span>
+                                (click)="differenza(j)" data-toggle="modal" href="#poesie-{{ j }}" aria-expanded="false"
+                                aria-controls="audio-{{j}}" style="vertical-align:middle;"><span>
                                     <mat-icon>audiotrack</mat-icon>
                                 </span></a>
                         </p>
@@ -30,6 +30,10 @@
                         <div class="modal fade" id="poesie-{{ j }}" tabindex="-1" role="dialog"
                             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                             <div class="modal-dialog modal-dialog-centered" role="document">
+                                <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff"
+                                    type="square-jelly-box" [fullScreen]="false">
+                                    <p style="color: white"> Loading... </p>
+                                </ngx-spinner>
                                 <div class="modal-content">
                                     <div class="modal-body">
                                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -40,8 +44,8 @@
 
                                         </h1>
                                         <hr>
-                                        <div *ngIf="!p.audioNotExist" style="margin-bottom: 10%;">
-                                            <div style="margin-top: 5%;" class="wrapper mat-typography"
+                                        <div *ngIf="spinnerIsRunning == false" style="margin-bottom: 10%;">
+                                            <div *ngIf="!p.audioNotExist" style="margin-top: 5%;" class="wrapper mat-typography"
                                                 fxLayout="column" fxLayoutGap="32px">
                                                 <mat-card style="width: responsive; height: 50px;">
                                                     <div mat-card-image plyr plyrTitle="Audio" plyrType="audio"

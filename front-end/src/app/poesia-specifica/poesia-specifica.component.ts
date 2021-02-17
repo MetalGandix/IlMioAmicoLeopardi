@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { PlyrComponent } from 'ngx-plyr';
 import { Poesia } from '../class/poesia';
 import { PoesiaService } from '../service/poesia.service';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-poesia-specifica',
@@ -11,8 +12,7 @@ import { PoesiaService } from '../service/poesia.service';
 })
 export class PoesiaSpecificaComponent implements OnInit {
 
-  constructor(private service: PoesiaService, private router: Router) {
-  }
+  constructor(private service: PoesiaService, private router: Router, private spinner: NgxSpinnerService) {}
 
   poesie: Poesia[]
   contatore: number
@@ -30,6 +30,8 @@ export class PoesiaSpecificaComponent implements OnInit {
   message: string;
   imageName: any;
 
+  spinnerIsRunning: boolean = true
+
   ngOnInit() {
     this.service.findAll().subscribe(poesiaSingola => {
       this.poesie = poesiaSingola
@@ -38,6 +40,8 @@ export class PoesiaSpecificaComponent implements OnInit {
   }
 
   prendiAudio(id: number){
+    this.spinner.show();
+    this.spinnerIsRunning = true
     this.service.findPoesiaSingolaById(id).subscribe(a => {
       console.log("id: ",id);
       console.log("a: ",a);
@@ -46,6 +50,8 @@ export class PoesiaSpecificaComponent implements OnInit {
       this.base64Data = this.retrieveResonse.picByte
       a.retrievedAudio = 'data:audio/mp3;base64,' + this.base64Data
       this.audio = a.retrievedAudio
+      this.spinner.hide();
+      this.spinnerIsRunning = false
     })
     })     
   }

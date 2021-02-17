@@ -3,7 +3,8 @@ import { Router } from '@angular/router';
 import { PlyrComponent } from 'ngx-plyr';
 import { Poesia } from '../class/poesia';
 import { PoesiaService } from '../service/poesia.service';
-import {Location} from '@angular/common';
+import { Location } from '@angular/common';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-mostra-poesia',
@@ -11,8 +12,8 @@ import {Location} from '@angular/common';
   styleUrls: ['./mostra-poesia.component.css']
 })
 export class MostraPoesiaComponent implements OnInit {
-  
-  constructor(private service: PoesiaService, private router: Router, private _location: Location) {  }
+
+  constructor(private service: PoesiaService, private router: Router, private _location: Location, private spinner: NgxSpinnerService) { }
 
   poesie: Poesia[]
   poesiaSpecifica: Poesia[]
@@ -28,22 +29,28 @@ export class MostraPoesiaComponent implements OnInit {
   base64Data: any;
   retrieveResonse: any;
 
+  spinnerIsRunning: boolean = true
+
   ngOnInit() {
     this.poesie = window.history.state.poesie
     console.log(this.poesie)
   }
 
-  prendiAudio(id: number){
+  prendiAudio(id: number) {
+    this.spinner.show();
+    this.spinnerIsRunning = true
     this.service.findPoesiaSingolaById(id).subscribe(a => {
-      console.log("id: ",id);
-      console.log("a: ",a);
+      console.log("id: ", id);
+      console.log("a: ", a);
       this.service.findAudioSingoloById(a.audio_id).subscribe(audio => {
-      this.retrieveResonse = audio
-      this.base64Data = this.retrieveResonse.picByte
-      a.retrievedAudio = 'data:audio/mp3;base64,' + this.base64Data
-      this.audio = a.retrievedAudio
-    })    
-  }) 
+        this.retrieveResonse = audio
+        this.base64Data = this.retrieveResonse.picByte
+        a.retrievedAudio = 'data:audio/mp3;base64,' + this.base64Data
+        this.audio = a.retrievedAudio
+        this.spinner.hide();
+        this.spinnerIsRunning = false
+      })
+    })
   }
 
   filtra() {
@@ -53,15 +60,15 @@ export class MostraPoesiaComponent implements OnInit {
       this.poesie = poesiaSingola
       this.poesie.forEach(a => {
         this.service.findAudioSingoloById(a.audio_id).subscribe(audio => {
-        this.retrieveResonse = audio
-        this.base64Data = this.retrieveResonse.picByte
-        this.audio = 'data:audio/mp3;base64,' + this.base64Data
+          this.retrieveResonse = audio
+          this.base64Data = this.retrieveResonse.picByte
+          this.audio = 'data:audio/mp3;base64,' + this.base64Data
+        })
       })
-    })
     })
   }
 
-  differenza(event){
+  differenza(event) {
     console.log("Evento: ", event)
   }
 

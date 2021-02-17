@@ -55,6 +55,10 @@
                         <!-- Modal -->
                         <div class="modal fade" id="poesie-{{ j }}" tabindex="-1" role="dialog"
                             aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                            <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="square-jelly-box"
+                                [fullScreen]="false">
+                                <p style="color: white"> Loading... </p>
+                            </ngx-spinner>
                             <div class="modal-dialog modal-dialog-centered" role="document">
                                 <div class="modal-content">
                                     <div class="modal-body">
@@ -66,8 +70,8 @@
                                             <b><i>{{p.titolo}}</i></b>
                                         </h1>
                                         <hr>
-                                        <div *ngIf="!p.audioNotExist" style="margin-bottom: 10%;">
-                                            <div style="margin-top: 5%;" class="wrapper mat-typography"
+                                        <div *ngIf="spinnerIsRunning == false" style="margin-bottom: 10%;">
+                                            <div *ngIf="!p.audioNotExist" style="margin-top: 5%;" class="wrapper mat-typography"
                                                 fxLayout="column" fxLayoutGap="32px">
                                                 <mat-card style="width: responsive; height: 50px;">
                                                     <div mat-card-image plyr plyrTitle="Audio" plyrType="audio"

@@ -59,6 +59,7 @@ import { PoesiaSpecificaComponent } from './poesia-specifica/poesia-specifica.co
 import { MostraPoesiaComponent } from './mostra-poesia/mostra-poesia.component';
 import { VediModuliSocioComponent } from './vedi-moduli-socio/vedi-moduli-socio.component';
 import { DataPrivacyComponent } from './data-privacy/data-privacy.component';
+import { NgxSpinnerModule } from "ngx-spinner";
 
 
 
@@ -122,6 +123,7 @@ import { DataPrivacyComponent } from './data-privacy/data-privacy.component';
     MatCardModule,
     MatListModule,
     YouTubePlayerModule,
+    NgxSpinnerModule,
   ],
   providers: [AuthGuardComponent,RoleGuardComponent,AuthenticationService,
     {
