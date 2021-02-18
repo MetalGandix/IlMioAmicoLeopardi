@@ -4,7 +4,7 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/giacomoleopardi"
+        android:icon="@mipmap/ic_launcher"
         android:label="AmicoLeopardi"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
