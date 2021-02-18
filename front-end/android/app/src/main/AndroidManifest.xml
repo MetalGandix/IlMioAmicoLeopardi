@@ -5,7 +5,7 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/giacomoleopardi"
-        android:label="@string/app_name"
+        android:label="AmicoLeopardi"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:usesCleartextTraffic="true"
@@ -14,7 +14,7 @@
         <activity
             android:configChanges="orientation|keyboardHidden|keyboard|screenSize|locale|smallestScreenSize|screenLayout|uiMode"
             android:name="unicam.app.giacomoleopardi.MainActivity"
-            android:label="@string/title_activity_main"
+            android:label="AmicoLeopardi"
             android:theme="@style/AppTheme.NoActionBarLaunch"
             android:launchMode="singleTask">
 
