@@ -1,5 +1,8 @@
 <div class="container">
     <p class="title">BACHECA EVENTI</p>
+    <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="square-jelly-box" [fullScreen]="true">
+        <p style="color: white"> Loading... </p>
+    </ngx-spinner>
     <div *ngFor="let e of eventi; let i = index" style="margin-bottom:30px">
         <div class="card my-5">
             <div class="overflow-auto">

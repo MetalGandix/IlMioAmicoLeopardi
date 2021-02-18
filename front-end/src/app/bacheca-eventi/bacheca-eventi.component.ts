@@ -7,6 +7,8 @@ import { AuthenticationService } from '../service/authentication.service';
 import { EventoService } from '../service/evento.service';
 import { User } from '../class/user';
 import { GestioneUtenteService } from '../service/gestione-utente.service';
+import { NgxSpinnerService } from "ngx-spinner";
+
 
 @Component({
   selector: 'app-bacheca-eventi',
@@ -15,7 +17,7 @@ import { GestioneUtenteService } from '../service/gestione-utente.service';
 })
 export class BachecaEventiComponent implements OnInit {
 
-  constructor(private auth: AuthenticationService, private gestioneUtente: GestioneUtenteService, private httpClient: HttpClient, private service: EventoService, private router: Router) {
+  constructor(private auth: AuthenticationService, private gestioneUtente: GestioneUtenteService, private httpClient: HttpClient, private service: EventoService, private router: Router, private spinner: NgxSpinnerService) {
   }
 
   admin: boolean = false
@@ -35,6 +37,8 @@ export class BachecaEventiComponent implements OnInit {
   array: any[];
 
   ngOnInit() {
+    this.spinner.show();
+
     this.refresha = window.history.state.refresha
     if (this.refresha == 1) {
       this.refresha++
@@ -54,11 +58,13 @@ export class BachecaEventiComponent implements OnInit {
     this.service.findEvents().subscribe(p => {
       this.eventi = p
       this.eventi.forEach(e => {
-        this.httpClient.get("http://159.89.22.125:8080/giacomoLeopardi/image/get/" + e.evento_immagine.name).subscribe(
+        this.httpClient.get("http://localhost:8080/image/get/" + e.evento_immagine.name).subscribe(
           res => {
             this.retrieveResonse = res
             this.base64Data = this.retrieveResonse.picByte;
             e.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data
+            this.spinner.hide();
+
           }
         )
       })

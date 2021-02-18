@@ -1,6 +1,7 @@
 <div class="container" style="font-family: 'Times New Roman', Times, serif;">
     <img class="img" src="\assets\images\LogoCentroCulturaleGL.png">
-    <h1 style="margin-top: 5%;">In questa sezione potrai compilare la domanda per diventare un socio del Centro culturale Giacomo Leopardi</h1>
+    <h1 style="margin-top: 5%;">In questa sezione potrai compilare la domanda per diventare un socio del Centro
+        culturale Giacomo Leopardi</h1>
 
     <div class="card-body">
         <form (ngSubmit)="OnSubmit()" #moduloForm="ngForm" style="text-align: -webkit-center; ">
@@ -235,16 +236,21 @@
                 </div>
 
                 <span>
-                <p style="font-size: medium;font-family: 'Times New Roman', Times, serif;">
-                    <mat-icon style="vertical-align:middle;">today</mat-icon>
-                    {{todayHTML | date: 'dd-MM-yyyy'}}
-                </p></span>
+                    <p style="font-size: medium;font-family: 'Times New Roman', Times, serif;">
+                        <mat-icon style="vertical-align:middle;">today</mat-icon>
+                        {{todayHTML | date: 'dd-MM-yyyy'}}
+                    </p>
+                </span>
             </div>
 
             <div style="margin-bottom: 10%;" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
                 <button [disabled]="!moduloForm.form.valid" type="submit" class="btn btn-primary">Invia
                     richiesta</button>
             </div>
+            <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="square-jelly-box"
+                [fullScreen]="true">
+                <p style="color: white"> Loading... </p>
+            </ngx-spinner>
             <div class="row" style="margin-top: 10%; width: 350px; height: 350px;" *ngIf="logRicevuto">
                 <div class="col-xs-12">
                     <div class="alert alert-success">

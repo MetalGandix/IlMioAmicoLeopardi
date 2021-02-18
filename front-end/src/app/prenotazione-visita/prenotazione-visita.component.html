@@ -193,10 +193,14 @@
                             </div>
 
                             <div style="margin-bottom: 40px;" class="col-xl-12 col-lg-12 col-md-12 col-sm-12 col-12">
-                                <button [disabled]="!prenotazioneForm.form.valid" type="submit"
-                                    class="btn btn-primary" data-toggle="modal"
-                                    data-target="#creazioneEvento">Invia richiesta</button>
+                                <button [disabled]="!prenotazioneForm.form.valid" type="submit" class="btn btn-primary"
+                                    data-toggle="modal" data-target="#creazioneEvento">Invia richiesta</button>
                             </div>
+
+                            <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="square-jelly-box"
+                                [fullScreen]="true">
+                                <p style="color: white"> Loading... </p>
+                            </ngx-spinner>
 
                             <!-- Modal -->
                             <div class="modal fade" id="creazioneEvento" tabindex="-1" role="dialog"
@@ -204,7 +208,8 @@
                                 <div class="modal-dialog modal-dialog-centered" role="document">
                                     <div class="modal-content">
                                         <div class="modal-header">
-                                            <h1 class="modal-title" id="exampleModalLongTitle">Prenotazione effettuata con successo</h1>
+                                            <h1 class="modal-title" id="exampleModalLongTitle">Prenotazione effettuata
+                                                con successo</h1>
                                         </div>
                                         <div class="modal-body">
                                             <p>Grazie per aver effettuato una prenotazione</p>

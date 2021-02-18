@@ -1,15 +1,18 @@
 <div *ngIf="admin" class="container">
-
+    <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="square-jelly-box"
+    [fullScreen]="true">
+    <p style="color: white"> Loading... </p>
+</ngx-spinner>
     <h1>In questa pagina è presente la lista degli utenti registrati</h1>
 
     <div class="card my-5" style="height: 350px;">
-        <h1 style="margin-top: 5%;">Tabella Admin</h1>
+        <h1 style="margin-top: 5%; color: red;">Tabella Admin</h1>
         <div class="overflow-auto">
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <thead class=".table-bordered">
-                            <tr>
+                            <tr style="color: red;">
                                 <th scope="col">Email</th>
                                 <th scope="col">Nome</th>
                                 <th scope="col">Cognome</th>
@@ -37,13 +40,13 @@
     </div>
 
     <div class="card my-5">
-        <h1 style="margin-top: 5%;">Tabella Utenti</h1>
+        <h1 style="margin-top: 5%; color: red;">Tabella Utenti</h1>
         <div class="overflow-auto">
             <div class="card-body">
                 <div class="table-responsive">
                     <table class="table table-bordered">
                         <thead class=".table-bordered">
-                            <tr>
+                            <tr style="color: red;">
                                 <th scope="col">Email</th>
                                 <th scope="col">Nome</th>
                                 <th scope="col">Cognome</th>

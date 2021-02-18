@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import { Evento } from '../class/evento';
 import { Immagine } from '../class/immagine';
 import { EventoService } from '../service/evento.service';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-evento',
@@ -22,7 +23,7 @@ export class EventoComponent implements OnInit {
   message: string;
   imageName: any;
 
-  constructor(private service: EventoService, private router: Router, private httpClient: HttpClient) {
+  constructor(private service: EventoService, private router: Router, private httpClient: HttpClient, private spinner: NgxSpinnerService) {
     this.evento = new Evento()
   }
 
@@ -31,9 +32,10 @@ export class EventoComponent implements OnInit {
   }
 
   onSubmit() {
+    this.spinner.show();
     const uploadImageData = new FormData();
     uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
-    this.httpClient.post<Immagine>('http://159.89.22.125:8080/giacomoLeopardi/image/upload', uploadImageData, { observe: 'response' })
+    this.httpClient.post<Immagine>('http://localhost:8080/image/upload', uploadImageData, { observe: 'response' })
       .subscribe((response) => {
         if (response.status === 200) {
           console.log(response)
@@ -45,6 +47,8 @@ export class EventoComponent implements OnInit {
       }
     )
     this.showMsg = true
+    this.spinner.hide();
+
   }
 
   public onFileChanged(event) {

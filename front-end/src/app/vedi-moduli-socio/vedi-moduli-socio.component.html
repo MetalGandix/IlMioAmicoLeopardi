@@ -1,6 +1,9 @@
 <div class="container" *ngIf="admin">
     <p class="title">In questa pagina è possibile visualizzare i moduli di richiesta socio</p>
-
+    <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="square-jelly-box"
+    [fullScreen]="true">
+    <p style="color: white"> Loading... </p>
+</ngx-spinner>
     <div>
         <button class="btn btn-outline-warning" style="width: 200px; display: block; margin: 5% auto 5% ;"
             (click)="moduliNonCofermati()">Lista moduli non confermati</button>
@@ -37,7 +40,7 @@
 
                                 <button class="btn btn-outline-success"
                                     style="width: 200px; display: block; margin: 5% auto 5% ;"
-                                    (click)="deleteModulo(modulo.id)">Conferma richiesta socio</button>
+                                    (click)="sendModulo(modulo)">Conferma richiesta socio</button>
                                 <button class="btn btn-outline-danger"
                                     style="width: 200px; display: block; margin: 5% auto 5% ;"
                                     (click)="deleteModulo(modulo.id)">Elimina richiesta socio</button>
@@ -49,8 +52,8 @@
         </div>
     </div>
 
-    <div *ngIf="moduliVisti">
-        <div *ngFor="let modulo of moduliCompilati; index as i">
+    <div *ngIf="vediConfermati">
+        <div *ngFor="let modulo of moduliConfermatiArray; index as i">
             <div class="card my-5">
                 <div class="overflow-auto">
                     <div class="card-body">

@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { DiventaSocio } from '../class/diventa-socio';
 import { DiventaSocioService } from '../service/diventa-socio.service';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-socio',
@@ -13,8 +14,7 @@ export class SocioComponent implements OnInit {
   today: string
   todayHTML = Date.now()
 
-  constructor(private service: DiventaSocioService, private route: ActivatedRoute,
-    private router: Router) {
+  constructor(private service: DiventaSocioService, private route: ActivatedRoute, private router: Router, private spinner: NgxSpinnerService) {
     this.modulo = new DiventaSocio()
   }
 
@@ -30,6 +30,7 @@ export class SocioComponent implements OnInit {
   }
 
   OnSubmit() {
+    this.spinner.show();
     var today = new Date();
     var dd = String(today.getDate()).padStart(2, '0');
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -39,5 +40,6 @@ export class SocioComponent implements OnInit {
     this.modulo.dataCompilazione = today;
     this.service.mandaModulo(this.modulo).subscribe()
     this.logRicevuto = true
+    this.spinner.hide();
   }
 }
