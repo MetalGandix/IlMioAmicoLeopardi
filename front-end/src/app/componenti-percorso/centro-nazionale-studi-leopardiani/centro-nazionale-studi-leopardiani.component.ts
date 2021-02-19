@@ -26,6 +26,11 @@ export class CentroNazionaleStudiLeopardianiComponent implements OnInit, AfterVi
   ngOnInit() {
   }
 
+  showMap(){
+    var link = ""+"http://maps.google.com/maps?daddr=" + 43.39799 +"," + 13.55112;
+    window.location.href = link;
+  }
+
   ngAfterViewInit() {
     const myAPIKey = "f1148686528a4ea488296c6f9f71041d";
     const mapStyle = "https://maps.geoapify.com/v1/styles/osm-carto/style.json";

@@ -20,6 +20,11 @@ export class VistaMontiAzzurriComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
   }
+  
+  showMap(){
+    var link = ""+"http://maps.google.com/maps?daddr=" + 43.398230871991785 +"," + 13.54970489839643;
+    window.location.href = link;
+  }
 
   ngAfterViewInit() {
     const myAPIKey = "f1148686528a4ea488296c6f9f71041d";

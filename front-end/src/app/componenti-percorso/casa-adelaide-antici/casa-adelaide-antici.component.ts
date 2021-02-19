@@ -25,6 +25,10 @@ export class CasaAdelaideAnticiComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
   }
+  showMap(){
+    var link = ""+"http://maps.google.com/maps?daddr=" + 43.39976943173114 +"," + 13.55255998134169;
+    window.location.href = link;
+  }
 
   ngAfterViewInit() {
     const myAPIKey = "f1148686528a4ea488296c6f9f71041d";

@@ -27,6 +27,12 @@ export class PalazzoVenieriComponent implements OnInit, AfterViewInit {
   ngOnInit() {
   }
 
+  showMap(){
+    var link = ""+"http://maps.google.com/maps?daddr=" + 43.40265 +"," + 13.55022;
+    window.location.href = link;
+  }
+
+
   ngAfterViewInit() {
     const myAPIKey = "f1148686528a4ea488296c6f9f71041d";
     const mapStyle = "https://maps.geoapify.com/v1/styles/osm-carto/style.json";

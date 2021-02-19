@@ -16,6 +16,8 @@ export class CasaLeopardiComponent implements OnInit, AfterViewInit {
   private map: L.Map;
   valore: number
   poesie: Poesia[]
+  lat = 43.39816
+  lng = 13.55196
 
   @ViewChild('map')
   private mapContainer: ElementRef<HTMLElement>;
@@ -24,6 +26,11 @@ export class CasaLeopardiComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit() {
+  }
+
+  showMap(){
+    var link = ""+"http://maps.google.com/maps?daddr=" + 43.39816 +"," + 13.55196;
+    window.location.href = link;
   }
 
   ngAfterViewInit() {

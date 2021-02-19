@@ -27,6 +27,11 @@ export class ViaRomaComponent implements OnInit, AfterViewInit {
   ngOnInit() {
   }
 
+  showMap(){
+    var link = ""+"http://maps.google.com/maps?daddr=" + 43.40131693699691 +"," + 13.552225940634017;
+    window.location.href = link;
+  }
+
   ngAfterViewInit() {
     const myAPIKey = "f1148686528a4ea488296c6f9f71041d";
     const mapStyle = "https://maps.geoapify.com/v1/styles/osm-carto/style.json";
