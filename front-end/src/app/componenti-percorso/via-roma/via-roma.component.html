@@ -6,7 +6,7 @@
         src="assets\images\Via Roma_IGP1017 copia_DxOFP.jpg" alt="Card image cap">
 
     <div class="map-container" #map></div>
-    <a style="color: red;" (click)="showMap()"><h3>Clicca qua per accedere a maps</h3></a>
+    <button class="button" style="color: red;" (click)="showMap()">Apri con maps</button>
 
     <div class="text">
         Percorrendo via Roma in direzione centro-città è opportuno citare l’esperienza vissuta da Giuseppe Ungaretti nel
@@ -53,4 +53,10 @@
         nel 1814, La Flagellazione e la Condanna e viaggio del Redentore al Calvario.
 
     </div>
+    <button class="button" style="float: left; margin-bottom: 10%" routerLink="/casa-adelaide-antici">
+        <mat-icon style="vertical-align: middle;">arrow_back</mat-icon>
+    </button>
+    <button class="button" style="float: right; margin-bottom: 10%" routerLink="/torre-passero-solitario">
+        <mat-icon style="vertical-align: middle;">arrow_forward</mat-icon>
+    </button>
 </div>

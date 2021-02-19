@@ -8,7 +8,7 @@
         alt="Card image cap">
 
     <div class="map-container" #map></div>
-    <a style="color: red;" (click)="showMap()"><h3>Clicca qua per accedere a maps</h3></a>
+    <button class="button" style="color: red;" (click)="showMap()">Apri con maps</button>
 
     <div class="text">
 
@@ -42,4 +42,7 @@
         permette di verificare l’effetto contrario di Leopardi da cui è partito il tour.
         A presto!
     </div>
+    <button class="button" style="float: left; margin-bottom: 10%" routerLink="/palazzo-venieri">
+        <mat-icon style="vertical-align: middle;">arrow_back</mat-icon>
+    </button>
 </div>

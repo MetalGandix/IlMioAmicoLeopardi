@@ -7,7 +7,7 @@
         src="assets\images\La campagna recanatese verso i monti azzurri_IGP0985 copia_DxOFP.jpg" alt="Card image cap">
 
     <div class="map-container" #map></div>
-    <a style="color: red;" (click)="showMap()"><h3>Clicca qua per accedere a maps</h3></a>
+    <button class="button" style="color: red;" (click)="showMap()">Apri con maps</button>
 
     <div class="text">
 
@@ -35,4 +35,10 @@
         campagna, una torre, il sentire il suono di una campana sono condizioni sufficienti, e potenti, per mettere in
         moto l’immaginazione.
     </div>
+    <button class="button" style="float: left; margin-bottom: 10%" routerLink="/monte-tabor">
+        <mat-icon style="vertical-align: middle;">arrow_back</mat-icon>
+    </button>
+    <button class="button" style="float: right; margin-bottom: 10%" routerLink="/il-colle-dell-infinito">
+        <mat-icon style="vertical-align: middle;">arrow_forward</mat-icon>
+    </button>
 </div>

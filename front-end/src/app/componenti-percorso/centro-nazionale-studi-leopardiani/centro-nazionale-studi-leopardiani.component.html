@@ -7,7 +7,7 @@
     src="assets\images\06_Centro_Nazionale_Leopardi_2_copia_DxOFP.jpg" alt="Card image cap">
 
   <div class="map-container" #map></div>
-  <a style="color: red;" (click)="showMap()"><h3>Clicca qua per accedere a maps</h3></a>
+  <button class="button" style="color: red;" (click)="showMap()">Apri con maps</button>
 
   <div class="text">
     Risalendo la "piazzuola" e costeggiando verso sinistra casa Leopardi, percorriamo per circa cinquanta metri una
@@ -45,5 +45,11 @@
         <mat-icon>menu_book</mat-icon>
       </button>
     </p>
+    <button class="button" style="float: left; margin-bottom: 10%" routerLink="/piazzuola-sabato-del-villaggio">
+      <mat-icon style="vertical-align: middle;">arrow_back</mat-icon>
+    </button>
+    <button class="button" style="float: right; margin-bottom: 10%" routerLink="/monte-tabor">
+      <mat-icon style="vertical-align: middle;">arrow_forward</mat-icon>
+    </button>
   </div>
 </div>

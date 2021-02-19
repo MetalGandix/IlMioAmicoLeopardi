@@ -1,12 +1,12 @@
 <div class="container">
     <h1><i>Colle dell'Infinito</i><br><button class="button" (click)="goBack()" style="vertical-align:middle"><span>
-        <mat-icon>arrow_back</mat-icon>
-      </span></button></h1>
+                <mat-icon>arrow_back</mat-icon>
+            </span></button></h1>
     <img class="card-img-top" style="width: 300px;margin-bottom: 30px;"
         src="assets\images\Dal Colle dell_infinito la Torre del Borgo_IGP1003 copia_DxOFP.jpg" alt="Card image cap">
 
     <div class="map-container" #map></div>
-    <a style="color: red;" (click)="showMap()"><h3>Clicca qua per accedere a maps</h3></a>
+    <button class="button" style="color: red;" (click)="showMap()">Apri con maps</button>
 
     <div class="text">
 
@@ -27,7 +27,7 @@
         leggero che sentiamo stormire tra queste piante. È un luogo di pace ben descritto ne L’Infinito, certamente la
         poesia più conosciuta di Leopardi, il quale, in una felice contraddizione, ci fa accorgere della positività del
         limite: la siepe che esclude il guardo è impedimento che permette di risvegliare il desiderio de l'eterno.
-        
+
         <p>
             Clicca sul libro per andare a leggere la poesia "L'infinito"
             <button class="button" (click)="searchByCapitolo(7)">
@@ -49,6 +49,11 @@
                 <mat-icon>menu_book</mat-icon>
             </button>
         </p>
-
+        <button class="button" style="float: left; margin-bottom: 10%" routerLink="/vista-monti-azzurri">
+            <mat-icon style="vertical-align: middle;">arrow_back</mat-icon>
+        </button>
+        <button class="button" style="float: right; margin-bottom: 10%" routerLink="/casa-adelaide-antici">
+            <mat-icon style="vertical-align: middle;">arrow_forward</mat-icon>
+        </button>
     </div>
 </div>

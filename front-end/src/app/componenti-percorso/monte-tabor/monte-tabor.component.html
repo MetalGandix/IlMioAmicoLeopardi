@@ -6,7 +6,7 @@
     src="assets\images\07_Verso_il_monte_tabor_DxOFP.jpg" alt="Card image cap">
 
   <div class="map-container" #map></div>
-  <a style="color: red;" (click)="showMap()"><h3>Clicca qua per accedere a maps</h3></a>
+  <button class="button" style="color: red;" (click)="showMap()">Apri con maps</button>
 
   <div class="text">
 
@@ -35,4 +35,10 @@
     quelle ossa non appartengano però a Leopardi e, quasi a conferma di questa dissonanza tomba-corpo, i più qui passano
     distrattamente.
   </div>
+  <button class="button" style="float: left; margin-bottom: 10%" routerLink="/centro-nazionale-studi-leopardiani">
+    <mat-icon style="vertical-align: middle;">arrow_back</mat-icon>
+  </button>
+  <button class="button" style="float: right; margin-bottom: 10%" routerLink="/vista-monti-azzurri">
+    <mat-icon style="vertical-align: middle;">arrow_forward</mat-icon>
+  </button>
 </div>
