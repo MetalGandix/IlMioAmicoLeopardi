@@ -24,7 +24,7 @@ public class SmtpMailSender {
         helper.setTo(to);
         helper.setText(body, true); // true indicates html
         // continue using helper object for more functionalities like adding attachments, etc.
-        helper.setFrom("ingegneriadelsoftwareavis@gmail.com");
+        helper.setFrom("prenotazioni@centroleopardi.it");
 
         javaMailSender.send(message);
     }

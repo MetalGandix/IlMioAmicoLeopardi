@@ -23,8 +23,8 @@ public class Poesie {
     @Column
     private boolean audioNotExist;
 
-    @OneToOne(cascade = CascadeType.ALL)
-    private Audio poesia_audio;
+    @Column
+    private int audio_id;
 
     public long getId() {
         return id;
@@ -74,11 +74,11 @@ public class Poesie {
         this.audioNotExist = audioNotExist;
     }
 
-    public Audio getPoesia_audio() {
-        return poesia_audio;
+    public int getAudio_id() {
+        return audio_id;
     }
 
-    public void setPoesia_audio(Audio poesia_audio) {
-        this.poesia_audio = poesia_audio;
+    public void setAudio_id(int audio_id) {
+        this.audio_id = audio_id;
     }
 }
