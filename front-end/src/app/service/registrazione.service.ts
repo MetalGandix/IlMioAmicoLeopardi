@@ -10,7 +10,7 @@ export class RegistrazioneService {
 
   constructor(private http: HttpClient) {}
 
-  private url = 'http://159.89.22.125:8080/giacomoLeopardi/'
+  private url = 'http://159.89.22.125:8080/'
 
   public save(user: User) {
     return this.http.post<User>(this.url+"user", user);

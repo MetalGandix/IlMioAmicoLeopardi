@@ -29,7 +29,7 @@ export class HomeComponent implements OnInit {
     this.service.findEvents().subscribe(p => {
       this.eventi = p
       this.eventi.forEach(e => {
-        this.httpClient.get("http://159.89.22.125:8080/giacomoLeopardi/image/get/" + e.evento_immagine.name).subscribe(
+        this.httpClient.get("http://159.89.22.125:8080/image/get/" + e.evento_immagine.name).subscribe(
           res => {
             this.retrieveResonse = res
             this.base64Data = this.retrieveResonse.picByte;

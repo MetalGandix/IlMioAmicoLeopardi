@@ -12,7 +12,7 @@ export class GestioneUtenteService {
   private url: string
 
   constructor(private http: HttpClient) {
-    this.url = 'http://159.89.22.125:8080/giacomoLeopardi/';
+    this.url = 'http://159.89.22.125:8080/';
   }
 
   public findAll(): Observable<User[]> {
