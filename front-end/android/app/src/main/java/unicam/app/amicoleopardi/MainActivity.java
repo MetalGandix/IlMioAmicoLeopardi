@@ -1,4 +1,4 @@
-package unicam.app.giacomoleopardi;
+package unicam.app.amicoleopardi;
 
 import android.os.Bundle;
 
