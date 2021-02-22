@@ -71,7 +71,7 @@ export class PiazzuolaSabatoDelVillaggioComponent implements OnInit, AfterViewIn
   }
   
   searchByCapitolo(valore: number) {
-    this.service.findPoesiaSingolaByCapitolo(7).subscribe(poesieTrovate => {
+    this.service.findPoesiaSingolaByCapitolo(3).subscribe(poesieTrovate => {
       this.poesie = poesieTrovate
       this.router.navigate(['/mostra-poesia'], {
         state: { poesie: this.poesie }
