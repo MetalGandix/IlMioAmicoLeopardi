@@ -12,7 +12,7 @@ export class DiventaSocioService {
   private url: string
 
   constructor(private http: HttpClient) {
-    this.url = 'http://159.89.22.125:8080/';
+    this.url = 'https://159.89.22.125:8080/';
   }
 
   public vediModuli(): Observable<DiventaSocio[]> {
