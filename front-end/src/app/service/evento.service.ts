@@ -16,7 +16,7 @@ export class EventoService {
   private url: string
 
   constructor(private http: HttpClient) {
-    this.url = 'https://159.89.22.125:8080/';
+    this.url = 'http://159.89.22.125:8080/';
   }
 
   public findEvents(): Observable<Evento[]> {
