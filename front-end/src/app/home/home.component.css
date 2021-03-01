@@ -60,8 +60,11 @@
 
 .imgEvento {
     max-width: -webkit-fill-available;
-    width: 300px;
-    display: block;
+    width: 250px !important;
+    height: 200px !important;
+    object-fit: cover;
+    /* width: 300px;
+    display: block; */
     margin-left: auto;
     margin-right: auto;
 }
