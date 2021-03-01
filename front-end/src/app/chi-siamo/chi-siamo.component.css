@@ -32,14 +32,15 @@ h5 {
     font-size: xxx-large;
 }
 
-.carousel-inner {
+/* .carousel-inner {
     margin-top: 10px;
     text-align: center;
-    width: 900px;
-    height: auto;
+    display: block;
+    width: 300px !important;
+    height: 300px !important;
     margin-left: auto;
     margin-right: auto;
-}
+} */
 
 @media all and (max-width: 500px) {
     p {
@@ -62,9 +63,16 @@ h5 {
         width: 260px;
         height: 300px;
     }
+    .carousel-inner > .carousel-item > img {
+        width:100% !important;
+        height: 400px !important;
+        /* max-height: 300px; */
+        object-fit: cover;
+      }
     .carousel-inner {
-        width: 260px;
-        height: 220px;
+        /* display: block;
+        width: 300px !important;
+        height: 300px !important; */
         margin-top: 10px;
         text-align: center;
         margin-left: auto;

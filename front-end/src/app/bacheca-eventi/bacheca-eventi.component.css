@@ -61,8 +61,11 @@ img {
     }
     img {
         max-width: -webkit-fill-available;
-        width: 250px;
-        display: block;
+        width: 250px !important;
+        height: 200px !important;
+        object-fit: cover;
+        /* width: 250px;
+        display: block; */
         margin-left: auto;
         margin-right: auto;
         margin-top: 10%;
