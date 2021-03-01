@@ -95,8 +95,8 @@
                   <div class="modal-body">
                     <p>Le presenti Condizioni d'uso (o "Condizioni") disciplinano l'uso dell'app, tranne nei casi di
                       esplicita indicazione circa l'applicazione di condizioni separate (diverse dalle presenti), e
-                      forniscono informazioni sul Servizio CentroCulturaleGL (il "Servizio"), descritto di seguito.
-                      Creando un account CentroCulturaleGL o usando CentroCulturaleGL, l'utente accetta le presenti
+                      forniscono informazioni sul Servizio AmicoLeopardi (il "Servizio"), descritto di seguito.
+                      Creando un account AmicoLeopardi o usando l'applicazione AmicoLeopardi, l'utente accetta le presenti
                       Condizioni.</p>
                   </div>
                   <div class="modal-footer">
@@ -123,7 +123,7 @@
           </div>
         </div> -->
 
-        <button *ngIf="b1 == true" type="submit" class="btn btn-primary" [disabled]="!userForm.form.valid"
+        <button *ngIf="b1 == true && clicked == false" type="submit" class="btn btn-primary" [disabled]="!userForm.form.valid"
           class="btn btn-info" data-toggle="modal" data-target="#registrazione">Submit</button>
 
         <!-- Modal -->

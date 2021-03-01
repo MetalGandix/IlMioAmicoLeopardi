@@ -16,6 +16,7 @@ export class RegistrazionePageComponent{
   userExist: boolean = false;
   b1: boolean = false
   b2: boolean = false
+  clicked: boolean = false
 
   constructor(
     private route: ActivatedRoute,
@@ -28,6 +29,7 @@ export class RegistrazionePageComponent{
   onSubmit() {
     this.registrazione.save(this.user).subscribe(data =>{})
     this.showMsg= true;
+    this.clicked = true
   }
 
   mettiRuolo(){
