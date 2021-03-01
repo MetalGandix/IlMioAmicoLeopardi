@@ -1,7 +1,10 @@
 import { Component, OnInit, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
 import * as L from 'leaflet';
 import 'mapbox-gl-leaflet';
+import { Poesia } from 'src/app/class/poesia';
+import { PoesiaService } from 'src/app/service/poesia.service';
 import { Location } from '@angular/common';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-autografo-inno',
@@ -11,11 +14,13 @@ import { Location } from '@angular/common';
 export class AutografoInnoComponent implements OnInit, AfterViewInit {
 
   private map: L.Map;
+  valore: number
+  poesie: Poesia[]
 
   @ViewChild('map')
   private mapContainer: ElementRef<HTMLElement>;
 
-  constructor(private _location: Location) { }
+  constructor(private service: PoesiaService, private router: Router, private _location: Location) { }
 
   ngOnInit() {
   }
@@ -63,6 +68,15 @@ export class AutografoInnoComponent implements OnInit, AfterViewInit {
     });
 
     L.marker([43.4021, 13.55142], { icon: redIcon }).addTo(map);
+  }
+
+  searchByCapitolo(valore: number) {
+    this.service.findPoesiaSingolaByCapitolo(12).subscribe(poesieTrovate => {
+      this.poesie = poesieTrovate
+      this.router.navigate(['/mostra-poesia'], {
+        state: { poesie: this.poesie }
+      })
+    })
   }
 
   goBack() {

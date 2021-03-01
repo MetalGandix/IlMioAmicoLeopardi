@@ -8,19 +8,35 @@
         alt="Card image cap">
 
     <div class="map-container" #map></div>
-    <a style="color: red;" (click)="showMap()"><h3>Clicca qua per accedere a maps</h3></a>
+    <a style="color: red;" (click)="showMap()">
+        <h3>Clicca qua per accedere a maps</h3>
+    </a>
 
     <div class="text">
 
-        Dopo la tappa di San Vito riprendiamo via Roma che termina pochi metri più avanti allorché voltando a sinistra
-        si fiancheggia la maestosa chiesa di Sant’Agostino, fino a giungere nell’angusto piazzale antistante l’ingresso
-        della chiesa. Davanti a noi si staglia la torre dell’acquedotto comunale scambiata dai più per la
+        La sala conferenze del Centro Leopardi è utilizzata per varie attività culturali, non solo leopardiane, quali
+        presentazione di libri, ascolti guidati di musica classica, percorsi di arte e letteratura, visione di video
+        didattici, ecc... Lungo la parete sinistra della sala, in gigantografia, è riproposto nel suo fronte/retro,
+        l'autografo dell'inno
 
         <a data-toggle="collapse" href="#multiCollapseExample1" aria-expanded="false"
-            aria-controls="multiCollapseExample1">Torre del passero solitario</a>
+            aria-controls="multiCollapseExample1">"Alla sua donna"</a>
         <div class="collapse multi-collapse" id="multiCollapseExample1">
             <img style="width: 300px;"
-                src="assets\images\La torre del passero solitario sovrasta il chiostro di S. Agostino_IGP1035 copia_DxOFP.jpg">
+                src="assets\images\Gigantografia.JPG">
         </div>
+
+         composto da Leopardi in 6 giorni nel settembre del 1823. Questo documento
+        è particolarmente significativo da visionare perché contiene le "varianti" - la brutta copia - che permettono di
+        capire la genesi è il contenuto dell'opera. Le cancellature e i ripensamenti danno vita ad un documento unico
+        dove a tema c'è la bellezza e il suo senso.
+
+        <p>
+            Clicca sul libro per andare a "Alla sua donna"
+            <button (click)="searchByCapitolo(12)" class="button">
+                <mat-icon>menu_book</mat-icon>
+            </button>
+        </p>
+
     </div>
 </div>
