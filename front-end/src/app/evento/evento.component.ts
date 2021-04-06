@@ -35,7 +35,7 @@ export class EventoComponent implements OnInit {
     this.spinner.show();
     const uploadImageData = new FormData();
     uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
-    this.httpClient.post<Immagine>('https://159.89.22.125:8080/image/upload', uploadImageData, { observe: 'response' })
+    this.httpClient.post<Immagine>('https://api-app.centroleopardi.it:8080/image/upload', uploadImageData, { observe: 'response' })
       .subscribe((response) => {
         if (response.status === 200) {
           console.log(response)
