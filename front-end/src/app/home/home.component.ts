@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Evento } from '../class/evento';
 import { Prenotazione } from '../class/prenotazione';
+import { NgxSpinnerService } from "ngx-spinner";
 import { EventoService } from '../service/evento.service';
 
 @Component({
@@ -12,7 +13,7 @@ import { EventoService } from '../service/evento.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private httpClient: HttpClient, private service: EventoService, private router: Router) { }
+  constructor(private httpClient: HttpClient, private service: EventoService, private router: Router, private spinner: NgxSpinnerService) { }
 
   eventi: Evento[]
   prenotazioniEliminate: Prenotazione[]
@@ -26,6 +27,7 @@ export class HomeComponent implements OnInit {
   array: any[];
 
   ngOnInit() {
+    this.spinner.show();
     this.service.findEvents().subscribe(p => {
       this.eventi = p
       this.eventi.forEach(e => {
@@ -37,6 +39,7 @@ export class HomeComponent implements OnInit {
           }
         )
       })
+      this.spinner.hide();
       console.log(this.eventi)
     })
   }

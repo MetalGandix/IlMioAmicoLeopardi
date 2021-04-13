@@ -1,41 +1,41 @@
 <div class="container">
 
   <h1 class="title"><b><i>Centro Culturale<br>Giacomo Leopardi<br>di Recanati</i></b></h1>
-    <div class="overflow-auto">
-      <div class="card-body">
-        <table class="table table-bordered table-striped" style="box-shadow: 15px 15px 10px #dedede;">
+  <div class="overflow-auto">
+    <div class="card-body">
+      <table class="table table-bordered table-striped" style="box-shadow: 15px 15px 10px #dedede;">
 
-          <p class="ermocolle">"Sempre caro mi fu quest’ermo colle,<br>E questa siepe, che da tanta parte<br>Dell’ultimo
-            orizzonte il guardo
-            esclude."</p>
+        <p class="ermocolle">"Sempre caro mi fu quest’ermo colle,<br>E questa siepe, che da tanta parte<br>Dell’ultimo
+          orizzonte il guardo
+          esclude."</p>
 
-          <img style="margin-bottom: 10%;" class="img" src="\assets\images\LogoCentroCulturaleGL.png">
+        <img style="margin-bottom: 10%;" class="img" src="\assets\images\LogoCentroCulturaleGL.png">
 
-          <table class="table table-borderless" style="font-family: 'Times New Roman', Times, serif; font-size: large;">
-            <tr>
-              <th style="vertical-align: middle;">
-                <button class="button" routerLink="/mappa" style="margin-right: 4px">
-                  <mat-icon class="icon">explore</mat-icon>
-                </button>
-              </th>
-              <th style="vertical-align: middle;" routerLink="/mappa">
-                Esplora il percorso leopardiano
-              </th>
-            </tr>
-            <tr>
-              <td style="vertical-align: middle;">
-                <button class="button" routerLink="/prenotazione-visita">
-                  <mat-icon class="icon">add</mat-icon>
-                </button>
-              </td>
-              <td style="vertical-align: middle;" routerLink="/prenotazione-visita">
-                <b>Prenota una visita</b>
-              </td>
-            </tr>
-          </table>
+        <table class="table table-borderless" style="font-family: 'Times New Roman', Times, serif; font-size: large;">
+          <tr>
+            <th style="vertical-align: middle;">
+              <button class="button" routerLink="/mappa" style="margin-right: 4px">
+                <mat-icon class="icon">explore</mat-icon>
+              </button>
+            </th>
+            <th style="vertical-align: middle;" routerLink="/mappa">
+              Esplora il percorso leopardiano
+            </th>
+          </tr>
+          <tr>
+            <td style="vertical-align: middle;">
+              <button class="button" routerLink="/prenotazione-visita">
+                <mat-icon class="icon">add</mat-icon>
+              </button>
+            </td>
+            <td style="vertical-align: middle;" routerLink="/prenotazione-visita">
+              <b>Prenota una visita</b>
+            </td>
+          </tr>
+        </table>
 
 
-          <!-- <p>
+        <!-- <p>
             <button class="button" routerLink="/mappa" style="margin-right: 4px">
               <mat-icon class="icon">explore</mat-icon>
               <i style="font-family: 'Times New Roman', Times, serif; font-size: large;  margin-left: 5%;">Esplora il
@@ -52,45 +52,46 @@
             </button>
           </p> -->
 
-          <p class="desanctis">
-            "Leopardi produce l'effetto contrario a quello che si propone. Non crede al progresso, e te lo fa
-            desiderare; non crede alla libertà, e te la fa amare. Chiama illusione l'amore, la gloria, la virtù, e te ne
-            accende un desiderio inesausto. E' scettico, e ti fa credente".<br>F. De Sanctis
-          </p>
+        <p class="desanctis">
+          "Leopardi produce l'effetto contrario a quello che si propone. Non crede al progresso, e te lo fa
+          desiderare; non crede alla libertà, e te la fa amare. Chiama illusione l'amore, la gloria, la virtù, e te ne
+          accende un desiderio inesausto. E' scettico, e ti fa credente".<br>F. De Sanctis
+        </p>
 
-          <div class="player">
-            <youtube-player videoId="EZtTsW2ncC8" suggestedQuality="standard" [height]="200" [width]="300"
-              [startSeconds]="1" [endSeconds]="200">
-            </youtube-player>
+        <div class="player">
+          <youtube-player videoId="EZtTsW2ncC8" suggestedQuality="standard" [height]="200" [width]="300"
+            [startSeconds]="1" [endSeconds]="200">
+          </youtube-player>
+        </div>
+      </table>
+
+      <table class="table table-bordered table-striped" style="box-shadow: 15px 15px 10px #dedede; margin-top: 5%;">
+        <h1 class="title" style="margin-top: 5%;"><i>Ultimo evento aggiunto</i></h1>
+        <p>
+          <button class="button" routerLink="/bacheca-eventi">
+            <mat-icon class="icon">event_note</mat-icon>
+            <i style="font-family: 'Times New Roman', Times, serif; font-size: large; margin-left: 5%;">
+              Bacheca eventi
+            </i>
+          </button>
+          <!-- <ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="square-jelly-box"
+            [fullScreen]="false">
+            <p style="color: white"> Caricamento... </p>
+          </ngx-spinner> -->
+        </p>
+        <div *ngFor="let e of eventi | slice:eventi.length-1:eventi.length" style="margin-bottom:10%; margin-top: 10%;">
+          <div>
+            <img class="imgEvento" [src]="e.retrievedImage">
           </div>
-        </table>
+          <p class="nomeEvento"> {{e.nomeEvento }} </p>
+          <hr>
+          <p class="dataEvento">Data evento: {{ e.dataEvento }}</p>
+          <hr>
+          <p class="descrizioneEvento">Descrizione evento:<br>
+            {{ e.descrizione }}</p>
 
-        <table class="table table-bordered table-striped" style="box-shadow: 15px 15px 10px #dedede; margin-top: 5%;">
-          <h1 class="title" style="margin-top: 5%;"><i>Ultimo evento aggiunto</i></h1>
-          <p>
-            <button class="button" routerLink="/bacheca-eventi">
-              <mat-icon class="icon">event_note</mat-icon>
-              <i style="font-family: 'Times New Roman', Times, serif; font-size: large; margin-left: 5%;">
-                Bacheca eventi
-              </i>
-            </button>
-          </p>
-
-          <div *ngFor="let e of eventi | slice:eventi.length-1:eventi.length"
-            style="margin-bottom:10%; margin-top: 10%;">
-            <div>
-              <img class="imgEvento" [src]="e.retrievedImage">
-            </div>
-
-            <p class="nomeEvento"> {{e.nomeEvento }} </p>
-            <hr>
-            <p class="dataEvento">Data evento: {{ e.dataEvento }}</p>
-            <hr>
-            <p class="descrizioneEvento">Descrizione evento:<br>
-              {{ e.descrizione }}</p>
-
-          </div>
-        </table>
-      </div>
+        </div>
+      </table>
     </div>
+  </div>
 </div>
