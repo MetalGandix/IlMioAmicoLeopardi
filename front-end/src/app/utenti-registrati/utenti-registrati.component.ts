@@ -33,7 +33,7 @@ export class UtentiRegistratiComponent implements OnInit {
       this.spinner.show()
       this.service.deleteUser(id).subscribe()
       this.spinner.hide()
-      window.setTimeout('location.reload()', 100);
+      window.setTimeout('location.reload()', 800);
     } else {
       alert('utente NON eliminato');
     }
