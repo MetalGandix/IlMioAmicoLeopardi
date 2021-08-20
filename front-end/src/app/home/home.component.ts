@@ -31,7 +31,7 @@ export class HomeComponent implements OnInit {
     this.service.findEvents().subscribe(p => {
       this.eventi = p
       this.eventi.forEach(e => {
-        this.httpClient.get("https://api-app.centroleopardi.it:8080/image/get/" + e.evento_immagine.name).subscribe(
+        this.httpClient.get("https://api-app.centroleopardi.it/giacomoLeopardi/image/get/" + e.evento_immagine.name).subscribe(
           res => {
             this.retrieveResonse = res
             this.base64Data = this.retrieveResonse.picByte;
