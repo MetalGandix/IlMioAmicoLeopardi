@@ -33,15 +33,12 @@ export class MostraPoesiaComponent implements OnInit {
 
   ngOnInit() {
     this.poesie = window.history.state.poesie
-    console.log(this.poesie)
   }
 
   prendiAudio(id: number) {
     this.spinner.show();
     this.spinnerIsRunning = true
     this.service.findPoesiaSingolaById(id).subscribe(a => {
-      console.log("id: ", id);
-      console.log("a: ", a);
       this.service.findAudioSingoloById(a.audio_id).subscribe(audio => {
         this.retrieveResonse = audio
         this.base64Data = this.retrieveResonse.picByte
@@ -55,7 +52,6 @@ export class MostraPoesiaComponent implements OnInit {
 
   filtra() {
     this.boo2 = true
-    console.log(this.titoloPoesia)
     this.service.findPoesiaSingola(this.titoloPoesia).subscribe(poesiaSingola => {
       this.poesie = poesiaSingola
       this.poesie.forEach(a => {
@@ -69,7 +65,6 @@ export class MostraPoesiaComponent implements OnInit {
   }
 
   differenza(event) {
-    console.log("Evento: ", event)
   }
 
   goBack() {
@@ -92,7 +87,6 @@ export class MostraPoesiaComponent implements OnInit {
   player: Plyr;
 
   played(event: Plyr.PlyrEvent) {
-    console.log('played', event);
   }
 
   play(): void {

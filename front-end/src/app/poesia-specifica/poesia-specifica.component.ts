@@ -35,7 +35,6 @@ export class PoesiaSpecificaComponent implements OnInit {
   ngOnInit() {
     this.service.findAll().subscribe(poesiaSingola => {
       this.poesie = poesiaSingola
-      console.log(this.poesie)
     })
   }
 
@@ -43,8 +42,6 @@ export class PoesiaSpecificaComponent implements OnInit {
     this.spinner.show();
     this.spinnerIsRunning = true
     this.service.findPoesiaSingolaById(id).subscribe(a => {
-      console.log("id: ",id);
-      console.log("a: ",a);
       this.service.findAudioSingoloById(a.audio_id).subscribe(audio => {
       this.retrieveResonse = audio
       this.base64Data = this.retrieveResonse.picByte
@@ -58,7 +55,6 @@ export class PoesiaSpecificaComponent implements OnInit {
 
   filtra() {
     this.boo1 = true
-    console.log(this.titoloPoesia)
     this.service.findPoesiaSingolaFiltrata(this.titoloPoesia).subscribe(poesiaSingola => {
       this.poesie = poesiaSingola
     })
@@ -66,12 +62,10 @@ export class PoesiaSpecificaComponent implements OnInit {
 
   differenza(event) {
     this.contatore = 0
-    console.log("Evento: ", event)
   }
 
   bottoneTrue() {
     this.boo1 = true
-    console.log(this.boo1)
   }
 
   bottoneFalse() {
@@ -86,7 +80,6 @@ export class PoesiaSpecificaComponent implements OnInit {
   player: Plyr;
 
   played(event: Plyr.PlyrEvent) {
-    console.log('played', event);
   }
 
   play(): void {

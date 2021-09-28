@@ -37,7 +37,6 @@ export class PrenotazioneVisitaComponent implements OnInit {
 
   apriInput() {
     this.input = true
-    console.log(this.input)
   }
 
   onChange(value: string) {

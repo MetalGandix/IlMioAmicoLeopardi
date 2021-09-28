@@ -32,9 +32,7 @@ export class SceltaUtenteComponent implements OnInit {
     this.gestioneUtente.findUtenteSingolo(sessionStorage.getItem('username')).subscribe(data => 
       {
         this.utente = data
-        console.log(this.utente)
       })
-    console.log("Session storage",sessionStorage.getItem('username'))
   }
 
 }

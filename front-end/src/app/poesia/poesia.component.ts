@@ -109,7 +109,6 @@ export class PoesiaComponent{
         })
       })
     }
-    console.log(valore)
   }
   
   // get the component instance to have access to plyr instance
@@ -120,7 +119,6 @@ export class PoesiaComponent{
   player: Plyr;
 
   played(event: Plyr.PlyrEvent) {
-    console.log('played', event);
   }
 
   play(): void {

@@ -25,7 +25,6 @@ export class SocioComponent implements OnInit {
   ngOnInit() {
     this.service.vediModuli().subscribe(moduloSingolo => {
       this.diventaSocio = moduloSingolo
-      console.log("Moduli: ", this.diventaSocio)
     })
   }
 

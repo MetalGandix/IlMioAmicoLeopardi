@@ -38,7 +38,6 @@ export class EventoComponent implements OnInit {
     this.httpClient.post<Immagine>('https://api-app.centroleopardi.it/giacomoLeopardi/image/upload', uploadImageData, { observe: 'response' })
       .subscribe((response) => {
         if (response.status === 200) {
-          console.log(response)
           this.service.saveEvents({event: this.evento, imageId: response.body.id}).subscribe()
           this.message = 'Immagine caricata correttamente';
         } else {

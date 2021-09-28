@@ -21,9 +21,7 @@ export class InfoVisitatoreComponent implements OnInit {
   this.gestioneUtente.findUtenteSingolo(sessionStorage.getItem('username')).subscribe(data => 
     {
       this.utente = data
-      console.log(this.utente)
     })
-  console.log("Session storage",sessionStorage.getItem('username'))
   this.service.prendiVisitaDalVisitatore(sessionStorage.getItem('username')).subscribe(p=>{
     this.visita = p
   })

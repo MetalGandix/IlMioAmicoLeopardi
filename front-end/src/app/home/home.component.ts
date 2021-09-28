@@ -40,7 +40,6 @@ export class HomeComponent implements OnInit {
         )
       })
       this.spinner.hide();
-      console.log(this.eventi)
     })
   }
 }

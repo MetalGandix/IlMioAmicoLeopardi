@@ -26,22 +26,18 @@ export class AreaRiservataComponent implements OnInit {
     this.admin = sessionStorage.getItem("Role") === "ROLE_ADMIN"
     this.service.findAll().subscribe(p => {
       this.prenotazione = p
-      console.log("Visite che devono avvenire: ", this.prenotazione)
     })
     this.service.findVisiteCancellate().subscribe(e => {
       this.prenotazioniEliminate = e
-      console.log("Visite eliminate: ", this.prenotazioniEliminate)
     })
     this.service.findVisiteAvvenute().subscribe(e => {
       this.prenotazioniAvvenute = e
-      console.log("Visite completate con successo: ", this.prenotazioniAvvenute)
       this.spinner.hide();
     })
   }
 
   cancellaPrenotazione(id: number) {
     this.spinner.show();
-    console.log("id: ", id)
     this.service.deletePrenotazione(id).subscribe()
     setTimeout(function(){
       window.location.reload();

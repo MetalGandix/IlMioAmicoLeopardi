@@ -69,7 +69,6 @@ export class CasaLeopardiComponent implements OnInit, AfterViewInit {
     });
 
     L.marker([43.39816, 13.55196], { icon: redIcon }).addTo(map);
-    console.log("MAPPA LEOPARDI: ", this.mapContainer)
   }
 
   searchByCapitolo(valore: number) {

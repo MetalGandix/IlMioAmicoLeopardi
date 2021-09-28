@@ -51,9 +51,7 @@ export class BachecaEventiComponent implements OnInit {
     }
     this.gestioneUtente.findUtenteSingolo(sessionStorage.getItem('username')).subscribe(data => {
       this.utente = data
-      console.log(this.utente)
     })
-    console.log("Session storage", sessionStorage.getItem('username'))
 
     this.service.findEvents().subscribe(p => {
       this.eventi = p
@@ -64,16 +62,29 @@ export class BachecaEventiComponent implements OnInit {
             this.base64Data = this.retrieveResonse.picByte;
             e.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data
             this.spinner.hide();
-
           }
         )
       })
-      console.log(this.eventi)
+      if(this.eventi.length == 0){
+        this.spinner.hide()
+      }
     })
   }
 
   deleteEvento(id: number) {
     this.service.deleteEvent(id).subscribe()
-    window.setTimeout('location.reload()', 100);
+    this.service.findEvents().subscribe(p => {
+      this.eventi = p
+      this.eventi.forEach(e => {
+        this.httpClient.get("https://api-app.centroleopardi.it/giacomoLeopardi/image/get/" + e.evento_immagine.name).subscribe(
+          res => {
+            this.retrieveResonse = res
+            this.base64Data = this.retrieveResonse.picByte;
+            e.retrievedImage = 'data:image/jpeg;base64,' + this.base64Data
+            this.spinner.hide();
+          }
+        )
+      })
+    })
   }
 }
